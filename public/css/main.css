@@ -1,0 +1,76 @@
+.title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 100px;
+}
+/*.center{
+  position:relative;
+  margin: 0px auto;
+}*/
+.body{
+  background-color:DarkGray;
+    height: 100%;
+  }
+
+.mainPage{
+  text-align:center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.button{
+    background-color: white; /* Green */
+    border: 2px solid black;
+    font-weight: 500;
+    color: black;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.row-centered{
+  text-align:center;
+}
+
+.col-centered{
+  display: inline-block;
+  float: none;
+  text-align: left;
+  margin-right: -4px;
+}
+
+#wrapper{
+  position: relative
+  width: 960px;
+  margin: 0 auto;
+  padding-left: 100px;
+}
+
+#blackboardPlaceholder{
+  baclground: url("https://assets.wired.com/photos/w_1164/wp-content/uploads/2017/01/20131009-TWITTER-ENGINEERS-040.jpg") no-repeat;
+  width: 924px;
+  height: 599px;
+  margin: 0 auto;
+  padding: 14px 0 75px 14px;
+  cursor: crosshair;
+  color:black;
+}
+
+#drawingCanvas {
+ position:absolute;
+ border:none;
+ color:#FFF;
+ overflow:hidden;
+ border:1px solid #000000;
+ background-color:transparent;
+ }
+#tempCanvas { position: absolute; width:897px; height:532px; overflow:hidden; }
+
+/* Resizing */
+.resize-container{
+  position: relative;
+}
