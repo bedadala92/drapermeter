@@ -1,6 +1,5 @@
-
 (function(){
-  angular.module('ngDmeter')
+  angular.module('draperMeter')
          .controller('MainCtrl', MainCtrl);
 
   MainCtrl.$inject = [];

@@ -1,48 +1,37 @@
-var draperMeter = angular.module('draperMeter',['ngRoute']);
+var draperMeter = angular.module('draperMeter',['ui.router']);
 
-//configuring routes
-draperMeter.config(function($routeProvider){
-  $routeProvider
+draperMeter.config(function($stateProvider, $urlRouterProvider){
 
-  .when('/', {
-    templateUrl: 'html/views/main.html',
-    controller: 'MainController'
-  })
+  $urlRouterProvider.otherwise('/main');
 
-  .when('/novelty',{
-    templateUrl: 'html/views/novelty.html',
-    controller: 'NoveltyController'
-  })
+  $stateProvider
 
-  .when('/elaboration',{
-    templateUrl: 'html/views/elaboration.html',
-    controller: 'ElaborationController'
-  })
+    .state('main', {
+      url: '/main',
+      templateUrl: 'html/views/partial-main.html'
+    })
 
-  .when('/style',{
-    templateUrl: 'html/views/style.html',
-    controller: 'StyleController.html'
-  })
+    .state('adpage',{
+      url:'/adpage',
+      templateUrl: 'html/views/partial-adpage.html'
+    })
 
-  .otherwise({
-    redirectTo: '/'
-  });
+    //nested views
+    .state('adpage.home',{
+      url: '/home',
+      templateUrl: 'html/views/partial-adpage-home.html',
+      controller: 'adPageController'
+    })
+
+    .state('adpage.about',{
+      url: '/about',
+      templateUrl: 'html/views/partial-adpage-about.html'
+    });
+
 });
 
 draperMeter.controller('mainController', function($scope) {
 
   $scope.message = 'Everyone come and see how i look';
 
-});
-
-draperMeter.controller('noveltyController', function($scope){
-  $scope.message = 'This is the novelty page';
-});
-
-draperMeter.controller('elaborationController', function($scope){
-  $scope.message = 'This is the elaboration page';
-});
-
-draperMeter.controller('styleController', function($scope){
-  $scope.message = 'This is the style page';
 });
