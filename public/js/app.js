@@ -13,14 +13,19 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
 
     .state('adpage',{
       url:'/adpage',
-      templateUrl: 'html/views/partial-adpage.html'
+      templateUrl: 'html/views/partial-adpage.html',
     })
 
     //nested views
     .state('adpage.home',{
       url: '/home',
       templateUrl: 'html/views/partial-adpage-home.html',
-      controller: 'adPageController'
+      controller: 'PollListCtrl'
+    })
+
+    .state('adpage.home.poll',{
+      url: '/home/poll',
+      templateUrl :'html/views/partial'
     })
 
     .state('adpage.about',{
