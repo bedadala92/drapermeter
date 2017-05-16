@@ -3,7 +3,7 @@ var server = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var bodyParser = require('body-parsr');
+// var bodyParser = require('body-parsr');
 
 
 
@@ -25,8 +25,8 @@ server.listen(port, function(){
 });
 
 
-server.use(function(err,req,res,next){
-  if(!err) return next();
-  console.log(err.stack);
-  res.json({error:true});
-});
+// server.use(function(err,req,res,next){
+//   if(!err) return next();
+//   console.log(err.stack);
+//   res.json({error:true});
+// });

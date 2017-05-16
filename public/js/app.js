@@ -1,41 +1,38 @@
-var draperMeter = angular.module('draperMeter',['ui.router']);
+/* creating our app and injecting ui-router */
+var draperMeter = angular.module('draperMeter', ['ui.router','ngAnimate']);
 
+/* configuring our routes */
 draperMeter.config(function($stateProvider, $urlRouterProvider){
 
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/poll');
 
   $stateProvider
 
-    .state('main', {
-      url: '/main',
-      templateUrl: 'html/views/partial-main.html'
+    .state('poll',{
+      url: '/poll',
+      templateUrl: 'html/views/partial-poll.html'
     })
-
-    .state('adpage',{
-      url:'/adpage',
-      templateUrl: 'html/views/partial-adpage.html',
+    // nested views
+    .state('poll.ad1', {
+      url: '/ad1',
+      templateUrl: 'html/views/partial-poll-ad1.html'
     })
-
-    //nested views
-    .state('adpage.home',{
-      url: '/home',
-      templateUrl: 'html/views/partial-adpage-home.html',
-      controller: 'PollListCtrl'
+    .state('poll.ad1.novelty', {
+      url: '/novelty',
+      templateUrl: 'html/views/partial-poll-ad1-novelty.html'
     })
-
-    .state('adpage.home.poll',{
-      url: '/home/poll',
-      templateUrl :'html/views/partial'
+    .state('poll.ad2', {
+      url: '/ad2',
+      templateUrl: 'html/views/partial-poll-ad2.html'
     })
-
-    .state('adpage.about',{
-      url: '/about',
-      templateUrl: 'html/views/partial-adpage-about.html'
+    .state('poll.ad3', {
+      url: '/ad3',
+      templateUrl: 'html/views/partial-poll-ad3.html'
     });
 
 });
 
-draperMeter.controller('mainController', function($scope) {
+draperMeter.controller('PollController', function($scope,$routeParams) {
 
   $scope.message = 'Everyone come and see how i look';
 
