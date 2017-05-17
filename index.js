@@ -2,10 +2,17 @@ var express = require('express');
 var server = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 
-// var bodyParser = require('body-parsr');
+//connect to mongodb
+mongoose.connect('mongodb://localhost/drapermeter');
+mongoose.Promise = global.Promise;
 
+//initialize body-parser
+server.use(bodyParser.json());
 
+// initialize routes
+server.use('/api',require('./routes/api'));
 
 //config files
 var db = require('./config/db');
@@ -21,7 +28,7 @@ server.get('/', function(request,response){
 });
 
 server.listen(port, function(){
-  console.log('Noe listening on port', port);
+  console.log('Now listening on port', port);
 });
 
 

@@ -20,6 +20,7 @@
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "connect-modrewrite": "^0.10.1"
+    "connect-modrewrite": "^0.10.1",
+    "nodemon": "^1.11.0"
   }
 }
