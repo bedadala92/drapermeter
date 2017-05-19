@@ -1,25 +1,26 @@
 <form id="qanda" method="post">
-    <label class="statement" for="">This HTML Likert Scale is easy to use</label>
+    <label class="statement" for="" ng-model="form.question">This HTML Likert Scale is easy to use</label>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="">
+        <input type="radio" name="likert" value="strong_agree" ng-model="form.sol">
         <label for="">Strongly Agree</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="strong_agree">
+        <input type="radio" name="likert" value="agree" ng-model="form.sol">
         <label for="">Agree</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="strong_agree">
+        <input type="radio" name="likert" value="neutral" ng-model="form.sol">
         <label for="">Neutral</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="strong_agree">
+        <input type="radio" name="likert" value="disagree" ng-model="form.sol">
         <label for="">Disagree</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="strong_agree">
+        <input type="radio" name="likert" value="strongly disagree" ng-model="form.sol">
         <label for="">Strongly Disagree</label>
       </li>
     </ul>
 </form>
+{{form}}

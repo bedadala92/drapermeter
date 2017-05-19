@@ -1,26 +1,19 @@
 var mongoose = require('mongoose');
-var Schema = new mongoose.Schema({ ip: 'String' });
+var voteSchema = new mongoose.Schema({ ip: 'String' });
+var choiceSchema = new mongoose.Schema({
+  text: String,
+  votes:[voteSchema]
+});
 
 //create Polls Schema and Model
 var PollSchema = new mongoose.Schema({
-  name:{
+  question:{
     type: String,
-    required: [true, 'Name field is required']
+    required: true
   },
-  rank: {
-    type: String,
-  },
-  available: {
-    type: Boolean,
-    default: false
-  }
+  choices: [choiceSchema]
 });
 
 //Creates a collection called Poll that will have poll objects of the type we defined in PollSchema
 var Poll = mongoose.model('poll',PollSchema);
-
 module.exports = Poll;
-// exports.PollSchema = new mongoose.Schema({
-//   question: { type: String, required: true },
-//   choices: [choiceSchema]
-// });
