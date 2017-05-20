@@ -32,8 +32,25 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
 
 });
 
-draperMeter.controller('PollController', function($scope,$routeParams) {
+draperMeter.controller('PollController', function($scope, $http) {
 
-  $scope.message = 'Everyone come and see how i look';
+  $http.get('/polls')
+    .success(function(result){
+      $scope.polls = result;
+      // console.log(data);
+    })
+    .error(function(data){
+      console.log('Error: ' + data);
+    });
 
+  $scope.formData ={};
+  $scope.createPoll = function(){
+    var data = {choice: $scope.formData};
+    $http.post('/polls', data)
+      .success(function(data,status,headers){
+        alert("poll added");
+        // $http.get(h)
+      });
+
+  };
 });

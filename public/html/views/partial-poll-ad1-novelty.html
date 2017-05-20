@@ -1,26 +1,29 @@
 <form id="qanda" method="post">
-    <label class="statement" for="" ng-model="form.question">This HTML Likert Scale is easy to use</label>
+    <label class="statement">This HTML Likert Scale is easy to use</label>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="form.sol">
+        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true">
         <label for="">Strongly Agree</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="agree" ng-model="form.sol">
+        <input type="radio" name="likert" value="agree" ng-model="formData.choice" ng-value="'agree'" ng-required="true">
         <label for="">Agree</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="neutral" ng-model="form.sol">
+        <input type="radio" name="likert" value="neutral" ng-model="formData.choice" ng-value="'neutral'" ng-required="true">
         <label for="">Neutral</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="disagree" ng-model="form.sol">
+        <input type="radio" name="likert" value="disagree" ng-model="formData.choice" ng-value="'disagree'" ng-required="true">
         <label for="">Disagree</label>
       </li>
       <li>
-        <input type="radio" name="likert" value="strongly disagree" ng-model="form.sol">
+        <input type="radio" name="likert" value="strongly disagree" ng-model="formData.choice" ng-value="'sdisagree'" ng-required="true">
         <label for="">Strongly Disagree</label>
       </li>
     </ul>
+    <button type="submit" ng-click="createPoll(formData.choice)" value="Submit">See Value</button>
 </form>
-{{form}}
+<div>
+  {{formData}}
+</div>
