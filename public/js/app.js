@@ -4,9 +4,14 @@ var draperMeter = angular.module('draperMeter', ['ui.router','ngAnimate']);
 /* configuring our routes */
 draperMeter.config(function($stateProvider, $urlRouterProvider){
 
-  $urlRouterProvider.otherwise('/poll');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
+
+    .state('home',{
+      url: '/home',
+      templateUrl: 'html/views/partial-home.html'
+    })
 
     .state('poll',{
       url: '/poll',
@@ -34,22 +39,27 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
 
 draperMeter.controller('PollController', function($scope, $http) {
 
+  $scope.formData = {};
+
   $http.get('/polls')
-    .success(function(result){
-      $scope.polls = result;
+    .success(function(data){
+      $scope.polls = data;
       // console.log(data);
     })
     .error(function(data){
       console.log('Error: ' + data);
     });
 
-  $scope.formData ={};
   $scope.createPoll = function(){
-    var data = {choice: $scope.formData};
-    $http.post('/polls', data)
-      .success(function(data,status,headers){
-        alert("poll added");
+    $http.post('/polls', $scope.formData)
+      .success(function(data){
+        $scope.formData ={};
+        $scope.todos = data;
+        alert("poll added " + data);
         // $http.get(h)
+      });
+      error(function(data){
+        console.log('Error: ' + data);
       });
 
   };

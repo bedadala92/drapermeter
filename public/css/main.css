@@ -1,3 +1,57 @@
+.home{
+  width: 100%;
+  margin: 0 auto;
+}
+.home h1{
+  text-align: center;
+  margin-top: 100px;
+}
+.home hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 4px solid #df0606;
+  margin: 0 auto;
+  width: 80px
+}
+
+.home .slidingButton{
+  color: #31302B;
+  padding: 12px 17px;
+  width: 20%;
+  margin: 0 auto;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: 3px solid #31302B;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  /*border-radius: 2px;*/
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #31302B;
+	-webkit-transition: all ease 0.8s;
+	-moz-transition: all ease 0.8s;
+	transition: all ease 0.8s;
+}
+
+.home a:link {
+  text-decoration: none;
+}
+
+.home .slidingButton:hover {
+  box-shadow: inset 0 100px 0 0 #df0606;
+  color: #FFF;
+  border: 3px solid #df0606;
+
+}
+
+.home ol{
+  padding: 0;
+  list-style-type: none;
+}
+
 form .statement {
   display:block;
   font-size: 14px;
