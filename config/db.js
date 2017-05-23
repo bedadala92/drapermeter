@@ -4,7 +4,7 @@
 
 //configuring the database
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://<bedadala92>:<dbpassword>@ds139791.mlab.com:39791/drapermeter';
+var mongoDB = 'mongodb://bedadala92:sandeep92@ds139791.mlab.com:39791/drapermeter';
 mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

@@ -14,16 +14,17 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
     })
 
     .state('poll',{
+      abstract: true,
       url: '/poll',
       templateUrl: 'html/views/partial-poll.html'
     })
     // nested views
     .state('poll.ad1', {
-      url: '/ad1',
+      url: '',
       templateUrl: 'html/views/partial-poll-ad1.html'
     })
     .state('poll.ad1.novelty', {
-      url: '/novelty',
+      url: '',
       templateUrl: 'html/views/partial-poll-ad1-novelty.html'
     })
     .state('poll.ad2', {
@@ -41,24 +42,22 @@ draperMeter.controller('PollController', function($scope, $http) {
 
   $scope.formData = {};
 
-  $http.get('/polls')
-    .success(function(data){
-      $scope.polls = data;
-      // console.log(data);
-    })
-    .error(function(data){
-      console.log('Error: ' + data);
-    });
+  // $http.get('/polls')
+  //   .success(function(data){
+  //     $scope.polls = data;
+  //     // console.log(data);
+  //   })
+  //   .error(function(data){
+  //     console.log('Error: ' + data);
+  //   });
 
   $scope.createPoll = function(){
     $http.post('/polls', $scope.formData)
       .success(function(data){
-        $scope.formData ={};
-        $scope.todos = data;
-        alert("poll added " + data);
-        // $http.get(h)
-      });
-      error(function(data){
+        $scope.polls = $scope.formData;
+        // console.log($scope.formData);
+      })
+      .error(function(data){
         console.log('Error: ' + data);
       });
 

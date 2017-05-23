@@ -1,15 +1,16 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     <div id="form-container">
-      <div class="page-header text-center">
-        <h2>drapermeter</h2>
-        <div id="status-buttons" class="text-center">
-          <a ui-sref-active="active" ui-sref=".ad1">1</a>
-          <a ui-sref-active="active" ui-sref=".ad2">2</a>
-          <a ui-sref-active="active" ui-sref=".ad3">3</a>
+      <div class="page-header">
+        <a ui-sref="home"><span style="color: #df0606">DRAPER</span><span style="color:#333">METER</span></a>
+        <div id="status-buttons" style="display:inline-block">
+          <a ui-sref-active="active" ui-sref=".ad1"><span class="banner">1</span></a>
+          <a ui-sref-active="active" ui-sref=".ad2"><span class="banner">2</span></a>
+          <a ui-sref-active="active" ui-sref=".ad3"><span class="banner">3</span></a>
         </div>
       </div>
       <div id="poll-views" ui-view></div>
+      <!-- <div id="poll-views" ui-view></div> -->
     </div>
   </div>
 </div>
