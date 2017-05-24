@@ -8,10 +8,17 @@ var path = require('path');
 var fs = require('fs');
 var Poll = require('./api/models/pollModel.js');
 
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = router;
 
 //connect to mongodb
-mongoose.connect('mongodb://bedadala92:sandeep92@ds139791.mlab.com:39791/drapermeter');
+if(env === 'development'){
+  mongoose.connect('mongodb://localhost/drapermeter');
+} else {
+  mongoose.connect('mongodb://bedadala92:sandeep92@ds139791.mlab.com:39791/drapermeter');
+}
+
 mongoose.Promise = global.Promise;
 
 
