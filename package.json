@@ -1,5 +1,5 @@
 {
-  "name": "admeasure",
+  "name": "drapermeter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "mongodb": "^2.2.26",
     "mongoose": "^4.9.9",
     "rxjs": "^5.3.0",
-    "ui-router-ng2": "^1.0.0-beta.1",
+    "@uirouter/angular": "^1.0.0-beta.1",
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
