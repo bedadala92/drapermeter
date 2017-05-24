@@ -1,11 +1,12 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-5 scales" style="padding: 0px">
+  <div class="row no-gutter">
+    <div class="col-sm-5" style="padding: 0px">
+      <div class="scales">
         <a ui-sref-active="active" ui-sref=".novelty">Novelty</a>
         <a ui-sref-active="active" ui-sref=".elaboration">Elaboration</a>
         <a ui-sref-active="active" ui-sref=".style">Style</a>
-      <div ui-view></div>
-      <input type="submit" value="Save"></input>
+      </div>
+        <div ui-view></div>
     </div>
     <div class="col-sm-7">
         <img class="adcell" src="/images/clios/gold/02.jpg" alt="">

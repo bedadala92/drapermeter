@@ -20,22 +20,56 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
     })
     // nested views
     .state('poll.ad1', {
-      url: '',
+      abstract: true,
+      url: '/ad1',
       templateUrl: 'html/views/partial-poll-ad1.html'
     })
     .state('poll.ad1.novelty', {
       url: '',
       templateUrl: 'html/views/partial-poll-ad1-novelty.html'
     })
+    .state('poll.ad1.elaboration', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad1-elaboration.html'
+    })
+    .state('poll.ad1.style', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad1-style.html'
+    })
     .state('poll.ad2', {
+      abstract:true,
       url: '/ad2',
       templateUrl: 'html/views/partial-poll-ad2.html'
     })
+    .state('poll.ad2.novelty', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad2-novelty.html'
+    })
+    .state('poll.ad2.elaboration', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad2-elaboration.html'
+    })
+    .state('poll.ad2.style', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad2-style.html'
+    })
     .state('poll.ad3', {
+      abstract: true,
       url: '/ad3',
       templateUrl: 'html/views/partial-poll-ad3.html'
+    })
+    .state('poll.ad3.novelty', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad3-novelty.html'
+    })
+    .state('poll.ad3.elaboration', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad3-elaboration.html'
+    })
+    .state('poll.ad3.style', {
+      url: '',
+      templateUrl: 'html/views/partial-poll-ad3-style.html'
     });
-
 });
 
 draperMeter.controller('PollController', function($scope, $http) {
