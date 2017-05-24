@@ -11,7 +11,7 @@ var Poll = require('./api/models/pollModel.js');
 module.exports = router;
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost/drapermeter');
+mongoose.connect('mongodb://bedadala92:sandeep92@ds139791.mlab.com:39791/drapermeter');
 mongoose.Promise = global.Promise;
 
 
