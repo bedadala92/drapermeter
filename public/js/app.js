@@ -76,14 +76,14 @@ draperMeter.controller('pollController', function($scope, $http) {
 
   $scope.formData = {};
 
-  // $http.get('/polls')
-  //   .success(function(data){
-  //     $scope.polls = data;
-  //     // console.log(data);
-  //   })
-  //   .error(function(data){
-  //     console.log('Error: ' + data);
-  //   });
+  $http.get('/polls')
+    .success(function(data){
+      $scope.polls = data;
+      // console.log(data);
+    })
+    .error(function(data){
+      console.log('Error: ' + data);
+    });
 
   $scope.createPoll = function(){
     $http.post('/polls', $scope.formData)
