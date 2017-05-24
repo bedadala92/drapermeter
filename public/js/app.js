@@ -72,7 +72,7 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
     });
 });
 
-draperMeter.controller('PollController', function($scope, $http) {
+draperMeter.controller('pollController', function($scope, $http) {
 
   $scope.formData = {};
 

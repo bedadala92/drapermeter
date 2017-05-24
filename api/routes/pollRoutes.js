@@ -2,7 +2,7 @@
   "use strict";
 
   module.exports = function(server){
-    var pollList = require('../controllers/PollController');
+    var pollList = require('../controllers/pollController');
 
   server.route('/polls')
     .get(pollList.list_all_polls)
