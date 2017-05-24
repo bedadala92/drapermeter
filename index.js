@@ -35,6 +35,6 @@ server.get('/', function(request,response){
   response.sendFile('index.html',{root:__dirname});
 });
 
-server.listen(port, function(){
-  console.log('Now listening for requests on port', port);
-});
+// server.listen(port, function(){
+//   console.log('Now listening for requests on port', port);
+// });
