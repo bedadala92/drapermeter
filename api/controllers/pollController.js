@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
   Poll = mongoose.model('Polls');
 
 
+
 exports.list_all_polls = function(req,res){
   Poll.find({}, function(err,poll){
     if(err)

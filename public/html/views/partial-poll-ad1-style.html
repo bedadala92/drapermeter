@@ -3,7 +3,7 @@
   <span class="question">This Ad has a high production quality</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true">
+        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true" ng-change='newValue(formData.choice)'>
         Strongly Agree
       </li>
       <li>

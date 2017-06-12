@@ -3,23 +3,23 @@
   <span class="question">Have you seen a similar Ad before?</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true">
+        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true" ng-change="RadioChange()">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="agree" ng-model="formData.choice" ng-value="'agree'" ng-required="true">
+        <input type="radio" name="likert" value="agree" ng-model="formData.choice" ng-value="'agree'" ng-required="true" ng-change="RadioChange('agree')">
         Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="neutral" ng-model="formData.choice" ng-value="'neutral'" ng-required="true">
+        <input type="radio" name="likert" value="neutral" ng-model="formData.choice" ng-value="'neutral'" ng-required="true" ng-change="RadioChange()">
         Neutral
       </li>
       <li>
-        <input type="radio" name="likert" value="disagree" ng-model="formData.choice" ng-value="'disagree'" ng-required="true">
+        <input type="radio" name="likert" value="disagree" ng-model="formData.choice" ng-value="'disagree'" ng-required="true" ng-change="RadioChange()">
         Disagree
       </li>
       <li>
-        <input type="radio" name="likert" value="strongly disagree" ng-model="formData.choice" ng-value="'sdisagree'" ng-required="true">
+        <input type="radio" name="likert" value="strong_disagree" ng-model="formData.choice" ng-value="'sdisagree'" ng-required="true" ng-change="RadioChange()">
         Strongly Disagree
       </li>
     </ul>

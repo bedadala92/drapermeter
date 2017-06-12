@@ -2,13 +2,18 @@ body a:link{
   text-decoration: none;
 }
 /*home page*/
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 0px;
+    margin-bottom: 00px;
+}
+
 .home{
   width: 100%;
   margin: 0 auto;
 }
 .home h1{
   text-align: center;
-  margin-top: 100px;
+  /*margin-top: 0px;*/
 }
 .home hr{
   display: block;
@@ -50,6 +55,33 @@ body a:link{
 .home ol{
   padding: 0;
   list-style-type: none;
+}
+/* animating pin in home page logo */
+#pin {
+  transform-origin: bottom center;
+  animation : pinmove 2s infinite;
+  -webkit-animation: pinmove 2s infinite;
+}
+
+@keyframes pinmove {
+  0%{
+    transform: rotate(-30deg);
+  }
+  50%{
+    transform: rotate(30deg);
+  }
+  100%{
+    transform: rotate(-30deg);
+  }
+}
+
+@-webkit-keyframes pinmove {
+  from{
+    transform: rotate(33deg);
+  }
+  to{
+    transform: rotate(-33deg);
+  }
 }
 
 /*poll page*/
@@ -288,3 +320,9 @@ form .buttons .submit:hover {background-color: #14892c;}
 	from 	{ -webkit-transform:translateX(200%); }
 	to 		{ -webkit-transform: translateX(0); }
 }*/
+
+/* removing bootstrap stuff */
+div .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
