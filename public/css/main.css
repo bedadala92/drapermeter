@@ -326,3 +326,141 @@ div .row {
   margin-right: 0px;
   margin-left: 0px;
 }
+
+/*Explanations Page*/
+.expanim{
+  -webkit-animation-name: cssTest;
+  -webkit-animation-duration: 5s;
+  transform-origin: center;
+  -webkit-animation-fill-mode: forwards;
+}
+.expanimremove{
+  -webkit-animation-name: cssTestremove;
+  -webkit-animation-duration: 5s;
+  transform-origin: center;
+  /*-webkit-animation-fill-mode: forwards;*/
+}
+
+@-webkit-keyframes cssTest {
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(45deg);
+  }
+}
+
+@-webkit-keyframes cssTestremove {
+  0%{
+    transform: rotateY(deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+
+  #ipodanim{
+    -webkit-animation-name: ianim;
+    -webkit-animation-duration: 5s;
+    transform-origin: center;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  #guyanim{
+    -webkit-animation-name: guyanim;
+    -webkit-animation-duration: 5s;
+    transform-origin: center;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  #logoanim{
+    -webkit-animation-name: logoanim;
+    -webkit-animation-duration: 5s;
+    transform-origin: center;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  .coloranim{
+    -webkit-animation-name: coloranim;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    /*transform-origin: center;*/
+    /*-webkit-animation-fill-mode: forwards;*/
+  }
+
+  .elabanim{
+    -webkit-animation-name: elabanim;
+    -webkit-animation-duration: 3s;
+    transform-origin: center;
+    -webkit-animation-fill-mode: forwards;
+    /*-webkit-animation-iteration-count: infinite;*/
+  }
+
+  @-webkit-keyframes elabanim {
+    /*80%{
+      transform: rotateZ(-45deg);
+    }*/
+    100%{
+      transform: rotateZ(-50deg) scale(1.6);
+    }
+  }
+
+  @-webkit-keyframes coloranim {
+    0%{
+      fill: #F3CC31;
+    }
+    25%{
+      fill: #0194e1;
+    }
+    50%{
+      fill: #ec5298 ;
+    }
+    75%{
+      fill: #a0cb3b;
+    }
+    100%{
+      fill: #F3CC31;
+    }
+  }
+
+  @-webkit-keyframes ianim {
+    0%{
+      /*transform: translate3D(0,0,0);*/
+    }
+    100%{
+      transform: translate3D(90px,-10px,0);
+    }
+  }
+  @-webkit-keyframes guyanim {
+    0%{
+      /*transform: translate3D(0,0,0);*/
+    }
+    100%{
+      transform: translate3D(45px,-5px,0);
+      opacity: 0.8;
+    }
+  }
+  @-webkit-keyframes logoanim {
+    0%{
+      /*transform: translate3D(0,0,0);*/
+    }
+    100%{
+      transform: translate3D(-100px,30px,0);
+      opacity: 0.5;
+      /*transform:translate3D(800px, -180px,0);*/
+    }
+  }
+
+  #rot{
+    -webkit-animation-name: rotateanim;
+    -webkit-animation-duration: 1s;
+    transform-origin: center;
+    -webkit-animation-iteration-count: infinite;
+     -webkit-animation-timing-function: linear;
+  }
+
+  @-webkit-keyframes rotateanim {
+    100%{
+      transform: rotate(360deg);
+    }
+  }

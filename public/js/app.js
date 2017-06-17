@@ -13,6 +13,24 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'html/views/partial-home.html'
     })
 
+    .state('info',{
+      // abstract: true,
+      url: '/info',
+      templateUrl: 'html/views/partial-info.html'
+    })
+    // .state('info.novelty',{
+    //   url: '',
+    //   templateUrl: 'html/views/partial-info-novelty.html'
+    // })
+    // .state('info.elaboration',{
+    //   url: '',
+    //   templateUrl: 'html/views/partial-info-elaboration.html'
+    // })
+    // .state('info.style',{
+    //   url: '',
+    //   templateUrl: 'html/views/partial-info-style.html'
+    // })
+
     .state('poll',{
       abstract: true,
       url: '/poll',
@@ -78,25 +96,60 @@ draperMeter.controller('pollController', function($scope, $http) {
 
   $scope.formData = {};
 
-  $scope.RadioChange = function(){
-    $("A2").css("visibility", "visible");
-    $("A3").css("visibility", "visible");
-    var tween = KUTE.fromTo('#A1',
-    {path: '#A1'},
-    {path: '#A2'},
-    // {path: '#A3'},
-    {
-      // easing: 'easingCubicInOut',
-      yoyo: true,
-      morphPrecision: 1,
-      morphIndex: 27,
-      repeat: 1, duration: 1500,
-      reverseSecondPath: true,
-      reverseFirstPath: false
-    }
-  ).start();
-  tween.start();
+// $(document).ready(function(){
+//   $('input[type=radio][name=likert]').change(function(){
+//     if($scope.formData.value == 'strong_agree'){
+//       console.log("Strongly Agree");
+//     }
+//     else if ($scope.formData.value == 'agree'){
+//       console.log("Agree");
+//     }
+//   });
+// });
+
+$scope.RadioChange = function(value){
+    value = $scope.formData;
+    console.log(value);
+    if(value.choice == "agree"){
+      $("#A2").css("visibility", "visible");
+      $("#A1").css("visibility", "hidden");
+      $("#A3").css("visibility", "hidden");
+      $("#A4").css("visibility", "hidden");
+      $("#A5").css("visibility", "hidden");
+      }
+      else if(value.choice == "sagree"){
+        $("#A3").css("visibility", "visible");
+        $("#A1").css("visibility", "hidden");
+        $("#A2").css("visibility", "hidden");
+        $("#A4").css("visibility", "hidden");
+        $("#A5").css("visibility", "hidden");
+      }
+      else if(value.choice == "disagree"){
+        $("#A4").css("visibility", "visible");
+        $("#A1").css("visibility", "hidden");
+        $("#A2").css("visibility", "hidden");
+        $("#A3").css("visibility", "hidden");
+        $("#A5").css("visibility", "hidden");
+      }
+      else if(value.choice == "sdisagree"){
+        $("#A5").css("visibility", "visible");
+        $("#A1").css("visibility", "hidden");
+        $("#A2").css("visibility", "hidden");
+        $("#A3").css("visibility", "hidden");
+        $("#A4").css("visibility", "hidden");
+      }
+      else if(value.choice == "neutral"){
+        $("#A1").css("visibility", "visible");
+        $("#A2").css("visibility", "hidden");
+        $("#A3").css("visibility", "hidden");
+        $("#A4").css("visibility", "hidden");
+        $("#A5").css("visibility", "hidden");
+      }
 };
+  // rvalue = $scope.formData;
+  // if(rvalue == "sagree"){
+  //   $scope.getElementById('A2').style.visibility = visible;
+  // }
 
   $http.get('/polls')
     .success(function(data){
