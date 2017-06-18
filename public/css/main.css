@@ -464,3 +464,37 @@ div .row {
       transform: rotate(360deg);
     }
   }
+
+  #OP{
+    -webkit-animation: wind 10s linear infinite;
+  }
+  @keyframes wind{
+  0% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+  #OP4{
+    -webkit-animation: wind2 20s linear infinite;
+  }
+  @keyframes wind2{
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+  #OP7{
+    -webkit-animation: wind3 25s linear infinite;
+  }
+  @keyframes wind3{
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
