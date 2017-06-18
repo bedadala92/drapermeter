@@ -4,76 +4,80 @@
   <span class="question">Have you seen a similar Ad before?</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="group1" value="strong_agree_1" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group1" value="strong_agree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="group1" value="agree_1" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group1" value="agree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Agree
       </li>
       <li>
-        <input type="radio" name="group1" value="neutral_1" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group1" value="neutral_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Neutral
       </li>
       <li>
-        <input type="radio" name="group1" value="disagree_1" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group1" value="disagree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Disagree
       </li>
       <li>
-        <input type="radio" name="group1" value="strong_disagree_1" ng-model="formData.choice" ng-required="true" ng-change="RadioChange()">
+        <input type="radio" name="group1" value="strong_disagree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange()">
         Strongly Disagree
       </li>
     </ul>
   </div>
+</form>
+  <form class="qanda" method="post">
   <div>
   <span class="question">How different is this Ad from an Ad you saw for a similar product?</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="group2" value="strong_agree_2" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group2" value="strong_agree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="group2" value="agree_2" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group2" value="agree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Agree
       </li>
       <li>
-        <input type="radio" name="group2" value="neutral_2" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group2" value="neutral_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Neutral
       </li>
       <li>
-        <input type="radio" name="group2" value="disagree_2" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group2" value="disagree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Disagree
       </li>
       <li>
-        <input type="radio" name="group2" value="strongly disagree_@" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group2" value="strong_disagree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Strongly Disagree
       </li>
     </ul>
   </div>
+</form>
+<form class="qanda" method="post">
   <div>
   <span class="question">This add contains multiple ideas / themes</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="group3" value="strong_agree_3" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group3" value="strong_agree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="group3" value="agree_3" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group3" value="agree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Agree
       </li>
       <li>
-        <input type="radio" name="group3" value="neutral_3" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group3" value="neutral_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Neutral
       </li>
       <li>
-        <input type="radio" name="group3" value="disagree_3" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group3" value="disagree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Disagree
       </li>
       <li>
-        <input type="radio" name="group3" value="strongly disagree_3" ng-model="formData.choice" ng-required="true" ng-change="RadioChange(value)">
+        <input type="radio" name="group3" value="strong_disagree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Strongly Disagree
       </li>
     </ul>
     </div>
-    <button type="submit" ng-click="createPoll(formData.choice)" value="Submit">Submit</button>
+    <button type="submit" ng-click="createPoll(formData.value)" value="Submit">Submit</button>
 </form>

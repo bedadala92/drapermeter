@@ -18,18 +18,6 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
       url: '/info',
       templateUrl: 'html/views/partial-info.html'
     })
-    // .state('info.novelty',{
-    //   url: '',
-    //   templateUrl: 'html/views/partial-info-novelty.html'
-    // })
-    // .state('info.elaboration',{
-    //   url: '',
-    //   templateUrl: 'html/views/partial-info-elaboration.html'
-    // })
-    // .state('info.style',{
-    //   url: '',
-    //   templateUrl: 'html/views/partial-info-style.html'
-    // })
 
     .state('poll',{
       abstract: true,
@@ -96,55 +84,53 @@ draperMeter.controller('pollController', function($scope, $http) {
 
   $scope.formData = {};
 
-// $(document).ready(function(){
-//   $('input[type=radio][name=likert]').change(function(){
-//     if($scope.formData.value == 'strong_agree'){
-//       console.log("Strongly Agree");
-//     }
-//     else if ($scope.formData.value == 'agree'){
-//       console.log("Agree");
-//     }
-//   });
-// });
 
 $scope.RadioChange = function(value){
-    value = $scope.formData;
+  value = $scope.formData;
     console.log(value);
-    if(value.choice == "agree"){
-      $("#A2").css("visibility", "visible");
-      $("#A1").css("visibility", "hidden");
-      $("#A3").css("visibility", "hidden");
-      $("#A4").css("visibility", "hidden");
-      $("#A5").css("visibility", "hidden");
-      }
-      else if(value.choice == "sagree"){
-        $("#A3").css("visibility", "visible");
+    for(i=1; i<4;i++){
+      if(value.group1 == "agree_"+i || value.group2 == "agree_"+i ||value.group3 == "agree_"+i){
+        console.log('you clicked agree');
+        $("#A2").css("visibility", "visible");
         $("#A1").css("visibility", "hidden");
-        $("#A2").css("visibility", "hidden");
-        $("#A4").css("visibility", "hidden");
-        $("#A5").css("visibility", "hidden");
-      }
-      else if(value.choice == "disagree"){
-        $("#A4").css("visibility", "visible");
-        $("#A1").css("visibility", "hidden");
-        $("#A2").css("visibility", "hidden");
-        $("#A3").css("visibility", "hidden");
-        $("#A5").css("visibility", "hidden");
-      }
-      else if(value.choice == "sdisagree"){
-        $("#A5").css("visibility", "visible");
-        $("#A1").css("visibility", "hidden");
-        $("#A2").css("visibility", "hidden");
-        $("#A3").css("visibility", "hidden");
-        $("#A4").css("visibility", "hidden");
-      }
-      else if(value.choice == "neutral"){
-        $("#A1").css("visibility", "visible");
-        $("#A2").css("visibility", "hidden");
         $("#A3").css("visibility", "hidden");
         $("#A4").css("visibility", "hidden");
         $("#A5").css("visibility", "hidden");
-      }
+        }
+        else if(value.group1 == "strong_agree_"+i || value.group2 == "strong_agree_"+i || value.group3 == "strong_agree_"+i){
+          console.log('you clicked strongly agree');
+          $("#A3").css("visibility", "visible");
+          $("#A1").css("visibility", "hidden");
+          $("#A2").css("visibility", "hidden");
+          $("#A4").css("visibility", "hidden");
+          $("#A5").css("visibility", "hidden");
+        }
+        else if(value.group1 == "disagree_"+i || value.group2 == "disagree_"+i || value.group3 == "disagree_"+i){
+          console.log('you clicked disagree');
+          $("#A4").css("visibility", "visible");
+          $("#A1").css("visibility", "hidden");
+          $("#A2").css("visibility", "hidden");
+          $("#A3").css("visibility", "hidden");
+          $("#A5").css("visibility", "hidden");
+        }
+        else if(value.group1 == "strong_disagree_"+i || value.group2 == "strong_disagree_"+i || value.group3 == "strong_disagree_"+i){
+          console.log('you clicked strongly disagree');
+          $("#A5").css("visibility", "visible");
+          $("#A1").css("visibility", "hidden");
+          $("#A2").css("visibility", "hidden");
+          $("#A3").css("visibility", "hidden");
+          $("#A4").css("visibility", "hidden");
+        }
+        else if(value.group1 == "neutral_"+i || value.group2 == "neutral_"+i || value.group3 == "neutral_"+i){
+          console.log('you clicked neutral');
+          $("#A1").css("visibility", "visible");
+          $("#A2").css("visibility", "hidden");
+          $("#A3").css("visibility", "hidden");
+          $("#A4").css("visibility", "hidden");
+          $("#A5").css("visibility", "hidden");
+        }
+    }
+
 };
   // rvalue = $scope.formData;
   // if(rvalue == "sagree"){
@@ -164,7 +150,7 @@ $scope.RadioChange = function(value){
     $http.post('/polls', $scope.formData)
       .success(function(data){
         $scope.polls = $scope.formData;
-        // console.log($scope.formData);
+        console.log($scope.formData);
       })
       .error(function(data){
         console.log('Error: ' + data);
