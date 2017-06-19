@@ -1,73 +1,82 @@
-<div class="aboutscale">Novelty is the degree of newness in the product in terms of the number and extent of new materials, new processes, and/or concepts included.</div>
 <form class="qanda" method="post">
-  <span class="question">Have you seen a similar Ad before?</span>
+  <div style="text-align:center">
+  <span style="display:inline-block" class="question">Have you seen a similar Ad before?</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true">
+        <input type="radio" name="group1" value="strong_agree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="agree" ng-model="formData.choice" ng-value="'agree'" ng-required="true">
+        <input type="radio" name="group1" value="agree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="neutral" ng-model="formData.choice" ng-value="'neutral'" ng-required="true">
+        <input type="radio" name="group1" value="neutral_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Neutral
       </li>
       <li>
-        <input type="radio" name="likert" value="disagree" ng-model="formData.choice" ng-value="'disagree'" ng-required="true">
+        <input type="radio" name="group1" value="disagree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
         Disagree
       </li>
       <li>
-        <input type="radio" name="likert" value="strongly disagree" ng-model="formData.choice" ng-value="'sdisagree'" ng-required="true">
+        <input type="radio" name="group1" value="strong_disagree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange()">
         Strongly Disagree
       </li>
     </ul>
-  <span class="question">How different is this Ad from an Ad you saw for a similar product?</span>
+  </div>
+</form>
+  <form class="qanda" method="post">
+  <div style="text-align:Center">
+  <span style="display:inline-block" class="question">How different is this Ad from an Ad you saw for a similar product?</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true">
+        <input type="radio" name="group2" value="strong_agree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="agree" ng-model="formData.choice" ng-value="'agree'" ng-required="true">
+        <input type="radio" name="group2" value="agree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="neutral" ng-model="formData.choice" ng-value="'neutral'" ng-required="true">
+        <input type="radio" name="group2" value="neutral_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Neutral
       </li>
       <li>
-        <input type="radio" name="likert" value="disagree" ng-model="formData.choice" ng-value="'disagree'" ng-required="true">
+        <input type="radio" name="group2" value="disagree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Disagree
       </li>
       <li>
-        <input type="radio" name="likert" value="strongly disagree" ng-model="formData.choice" ng-value="'sdisagree'" ng-required="true">
+        <input type="radio" name="group2" value="strong_disagree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
         Strongly Disagree
       </li>
     </ul>
-  <span class="question">This add contains multiple ideas / themes</span>
+  </div>
+</form>
+<form class="qanda" method="post">
+  <div style="text-align:center">
+  <span style="display:inline-block" class="question">This add contains multiple ideas / themes</span>
     <ul class="likert">
       <li>
-        <input type="radio" name="likert" value="strong_agree" ng-model="formData.choice" ng-value="'sagree'" ng-required="true">
+        <input type="radio" name="group3" value="strong_agree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Strongly Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="agree" ng-model="formData.choice" ng-value="'agree'" ng-required="true">
+        <input type="radio" name="group3" value="agree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Agree
       </li>
       <li>
-        <input type="radio" name="likert" value="neutral" ng-model="formData.choice" ng-value="'neutral'" ng-required="true">
+        <input type="radio" name="group3" value="neutral_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Neutral
       </li>
       <li>
-        <input type="radio" name="likert" value="disagree" ng-model="formData.choice" ng-value="'disagree'" ng-required="true">
+        <input type="radio" name="group3" value="disagree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Disagree
       </li>
       <li>
-        <input type="radio" name="likert" value="strongly disagree" ng-model="formData.choice" ng-value="'sdisagree'" ng-required="true">
+        <input type="radio" name="group3" value="strong_disagree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
         Strongly Disagree
       </li>
     </ul>
-    <button type="submit" ng-click="createPoll(formData.choice)" value="Submit">Submit</button>
+    </div>
+    <button style="display:block; margin:auto; margin-top:20px; margin-bottom:20px" type="submit" ng-click="createPoll(formData.value)" value="Submit">Submit</button>
 </form>

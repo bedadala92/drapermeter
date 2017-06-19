@@ -1,7 +1,6 @@
-<div class="aboutscale">Novelty is the degree of newness in the product in terms of the number and extent of new materials, new processes, and/or concepts included.</div>
 <form class="qanda" method="post">
-  <div>
-  <span class="question">Have you seen a similar Ad before?</span>
+  <div style="text-align:center">
+  <span style="display:inline-block" class="question">Have you seen a similar Ad before?</span>
     <ul class="likert">
       <li>
         <input type="radio" name="group1" value="strong_agree_1" ng-model="formData.group1" ng-required="true" ng-change="RadioChange(value)">
@@ -27,8 +26,8 @@
   </div>
 </form>
   <form class="qanda" method="post">
-  <div>
-  <span class="question">How different is this Ad from an Ad you saw for a similar product?</span>
+  <div style="text-align:Center">
+  <span style="display:inline-block" class="question">How different is this Ad from an Ad you saw for a similar product?</span>
     <ul class="likert">
       <li>
         <input type="radio" name="group2" value="strong_agree_2" ng-model="formData.group2" ng-required="true" ng-change="RadioChange(value)">
@@ -54,8 +53,8 @@
   </div>
 </form>
 <form class="qanda" method="post">
-  <div>
-  <span class="question">This add contains multiple ideas / themes</span>
+  <div style="text-align:center">
+  <span style="display:inline-block" class="question">This add contains multiple ideas / themes</span>
     <ul class="likert">
       <li>
         <input type="radio" name="group3" value="strong_agree_3" ng-model="formData.group3" ng-required="true" ng-change="RadioChange(value)">
@@ -79,5 +78,5 @@
       </li>
     </ul>
     </div>
-    <button type="submit" ng-click="createPoll(formData.value)" value="Submit">Submit</button>
+    <button style="display:block; margin:auto; margin-top:20px; margin-bottom:20px" type="submit" ng-click="createPoll(formData.value)" value="Submit">Submit</button>
 </form>
