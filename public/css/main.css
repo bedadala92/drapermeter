@@ -212,6 +212,16 @@ form .likert {
   display:block;
   border-bottom:1px solid #efefef;
 }
+
+form .likert.gender {
+  font-size: 12px;
+  width:40%;
+  margin:0 auto;
+  display:block;
+  border-bottom:none;
+  text-align:center;
+}
+
 form .question{
   font-weight:700;
 }
@@ -225,6 +235,14 @@ form .likert:before {
   height:4px;
   width:78%;
 }
+
+form .likert.gender:before {
+  background-color:#efefef;
+  height:4px;
+  width:38%;
+  left:31%;
+}
+
 form .likert li {
   display:inline-block;
   width:19%;
@@ -263,12 +281,18 @@ form .buttons .submit:hover {background-color: #14892c;}
   /*border-radius: 10px;*/
   display:block;
   margin-top: -20px;
+  top:0px;
+  z-index:0;
 }
 .no-gutter > [class*='col-'] {
     padding-right:0;
     padding-left:20;
 }
-
+.adfit{
+  width:57.2%;
+  position:absolute;
+  top:40.5%;right:1%; left:0; margin:auto;
+}
 /*animated views*/
 #poll-views.ng-enter,
 #poll-views.ng-leave      {
@@ -515,4 +539,7 @@ div .row {
 
   /* hide the glass by default */
   display: none;
+}
+.form-control{
+  border-radius: 0,-webkit-appearance: none;.
 }
