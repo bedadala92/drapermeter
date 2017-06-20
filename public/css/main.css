@@ -283,6 +283,7 @@ form .buttons .submit:hover {background-color: #14892c;}
   margin-top: -20px;
   top:0px;
   z-index:0;
+  overflow:hidden
 }
 .no-gutter > [class*='col-'] {
     padding-right:0;
@@ -304,6 +305,16 @@ form .buttons .submit:hover {background-color: #14892c;}
   -webkit-transition:0.5s all ease;
 }
 
+.adcell img{
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.adcell:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 /* enter animation */
 /*#poll-views.ng-enter            {
   -webkit-animation:slideInRight 0.5s both ease;
@@ -542,4 +553,8 @@ div .row {
 }
 .form-control{
   border-radius: 0,-webkit-appearance: none;.
+}
+
+#q2,#q3,#q4,#q5,#q6,#q7,#q8,#q9{
+  display:none;
 }

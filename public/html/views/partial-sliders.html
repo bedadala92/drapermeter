@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="background-color:yellow; height:100%">Image</div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="background-color:yellow; height:100%; padding-top:50px">
+      <div style="width:100%; height:100px; background-color:pink; border-radius:10px; display:inline-block">
+        <div style="text-align:center">Question<span></span>of<span></span></div>
+        <div class="questions" style="text-align:center">
+            <div id="q1" class="first current">Have you seen a similar Ad before?</div>
+            <div id="q2" >How different is this Ad from an Ad you saw for a similar product?</div>
+            <div id="q3" >This add contains multiple ideas / themes</div>
+            <div id="q4" >How relevant is the idea shown in the Ad to the product categeory</div>
+            <div id="q5" >How well can you relate to the idea / situation shown in the Ad?</div>
+            <div id="q6" >How easy was it to interpret the idea shown in the Ad?</div>
+            <div id="q7" >This Ad has a high production quality</div>
+            <div id="q8" >This Ad has great copy</div>
+            <div id="q9" class="last">This Ad was too long / too informative</div>
+          <button id="next">Next</button><br>
+          <button id="back" disabled="disabled">Back</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
+  </div>
+</div>
+<script>
+  $('#next').click(function(){
+    $('.current').removeClass('current').hide()
+      .next().show().addClass('current');
+    if($('.current').hasClass('last')){
+      $('#next').attr('disabled',true);
+    }
+    $('#back').attr('disabled', null);
+  });
+  $('#back').click(function() {
+    $('.current').removeClass('current').hide()
+        .prev().show().addClass('current');
+    if ($('.current').hasClass('first')) {
+        $('#back').attr('disabled', true);
+    }
+    $('#next').attr('disabled', null);
+
+});
+</script>
