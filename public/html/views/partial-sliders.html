@@ -4,7 +4,7 @@
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="background-color:yellow; height:100%; padding-top:50px">
       <div style="width:100%; height:100px; background-color:pink; border-radius:10px; display:inline-block">
-        <div style="text-align:center">Question<span></span>of<span></span></div>
+        <div style="text-align:center">Question <span id="qnum"></span> of <span>9</span></div>
         <div class="questions" style="text-align:center">
             <div id="q1" class="first current">Have you seen a similar Ad before?</div>
             <div id="q2" >How different is this Ad from an Ad you saw for a similar product?</div>
@@ -19,12 +19,45 @@
           <button id="back" disabled="disabled">Back</button>
         </div>
       </div>
+      <div class="circle_container">
+        <!-- <div style="transform:" class="bar"></div> -->
+        <div style="transform:rotate(0deg)   translateX(105px) rotate(90deg); background-color:blue" class="bar currentbar"></div>
+        <div style="transform:rotate(40deg)  translateX(105px) rotate(90deg); background-color:black" class="bar"></div>
+        <div style="transform:rotate(80deg)  translateX(105px) rotate(90deg); background-color:maroon" class="bar"></div>
+        <div style="transform:rotate(120deg) translateX(105px) rotate(90deg); background-color:red" class="bar"></div>
+        <div style="transform:rotate(160deg) translateX(105px) rotate(90deg); background-color:pink" class="bar"></div>
+        <div style="transform:rotate(200deg) translateX(105px) rotate(90deg); background-color:orange" class="bar"></div>
+        <div style="transform:rotate(240deg) translateX(105px) rotate(90deg); background-color:white" class="bar"></div>
+        <div style="transform:rotate(280deg) translateX(105px) rotate(90deg); background-color:green" class="bar"></div>
+        <div style="transform:rotate(320deg) translateX(105px) rotate(90deg); background-color:purple" class="bar"></div>
+      </div>
     </div>
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
   </div>
 </div>
 <script>
-  $('#next').click(function(){
+var qnumber = 1;
+$('#qnum').text(qnumber);
+
+var nextAngle=0;
+function getNextAngle(){
+  nextAngle += 40;
+  return nextAngle;
+};
+function getBackAngle(){
+  nextAngle -= 40;
+  return nextAngle;
+};
+
+  $('#next').on("click",function(){
+    var animDuration = 2000;
+    // console.log(getNextAngle());
+    $('.circle_container').rotate({animateTo: getNextAngle()});
+
+
+    qnumber = qnumber+1;
+    $('#qnum').text(qnumber);
+
     $('.current').removeClass('current').hide()
       .next().show().addClass('current');
     if($('.current').hasClass('last')){
@@ -32,7 +65,13 @@
     }
     $('#back').attr('disabled', null);
   });
-  $('#back').click(function() {
+  $('#back').on("click",function() {
+
+    $('.circle_container').rotate({animateTo: getBackAngle()});
+
+    qnumber = qnumber-1;
+    $('#qnum').text(qnumber);
+
     $('.current').removeClass('current').hide()
         .prev().show().addClass('current');
     if ($('.current').hasClass('first')) {
