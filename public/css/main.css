@@ -589,8 +589,3 @@ div .row {
   border-style:solid;
   border-color:green;
 }
-
-.rotated{
-  transition: 2s linear;
-  transform: rotate(90deg);
-}

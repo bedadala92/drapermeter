@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="circle_container">
-      <div class="sliders"></div>
+      <div class="sliders" style="background-color:blue"></div>
       <div class="sliders"></div>
       <div class="sliders"></div>
       <div class="sliders"></div>
@@ -66,34 +66,42 @@ var qnumber = 1;
 $('#qnum').text(qnumber);
 
 var nextAngle=0;
+var reduceAngle =0;
+var reduceBackAngle = 0;
 function getNextAngle(){
-  nextAngle += 40;
+  nextAngle = nextAngle+40;
+  reduceAngle -= 40;
   return nextAngle;
 };
 function getBackAngle(){
   nextAngle -= 40;
+  reduceAngle += 40;
   return nextAngle;
 };
 
-  $('#next').on("click",function(){
-    var animDuration = 2000;
-    // console.log(getNextAngle());
-    $('.circle_container').rotate({animateTo: getNextAngle()});
+//click magic
 
+$('#next').each(function(){
+  $(this).on("click", function(){
+      $('.circle_container').rotate({animateTo: getNextAngle()});
+      $('.sliders').rotate({animateTo:reduceAngle});
+      qnumber = qnumber+1;
+      $('#qnum').text(qnumber);
 
-    qnumber = qnumber+1;
-    $('#qnum').text(qnumber);
+      $('.current').removeClass('current').hide()
+        .next().show().addClass('current');
+      if($('.current').hasClass('last')){
+        $('#next').attr('disabled',true);
+      }
+      $('#back').attr('disabled', null);
+  })
+});
 
-    $('.current').removeClass('current').hide()
-      .next().show().addClass('current');
-    if($('.current').hasClass('last')){
-      $('#next').attr('disabled',true);
-    }
-    $('#back').attr('disabled', null);
-  });
+//
   $('#back').on("click",function() {
 
     $('.circle_container').rotate({animateTo: getBackAngle()});
+    $('.sliders').rotate({animateTo:reduceAngle});
 
     qnumber = qnumber-1;
     $('#qnum').text(qnumber);
