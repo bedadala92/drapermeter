@@ -20,22 +20,48 @@
         </div>
       </div>
       <div class="circle_container">
-        <!-- <div style="transform:" class="bar"></div> -->
-        <div style="transform:rotate(0deg)   translateX(105px) rotate(90deg); background-color:blue" class="bar currentbar"></div>
-        <div style="transform:rotate(40deg)  translateX(105px) rotate(90deg); background-color:black" class="bar"></div>
-        <div style="transform:rotate(80deg)  translateX(105px) rotate(90deg); background-color:maroon" class="bar"></div>
-        <div style="transform:rotate(120deg) translateX(105px) rotate(90deg); background-color:red" class="bar"></div>
-        <div style="transform:rotate(160deg) translateX(105px) rotate(90deg); background-color:pink" class="bar"></div>
-        <div style="transform:rotate(200deg) translateX(105px) rotate(90deg); background-color:orange" class="bar"></div>
-        <div style="transform:rotate(240deg) translateX(105px) rotate(90deg); background-color:white" class="bar"></div>
-        <div style="transform:rotate(280deg) translateX(105px) rotate(90deg); background-color:green" class="bar"></div>
-        <div style="transform:rotate(320deg) translateX(105px) rotate(90deg); background-color:purple" class="bar"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
+      <div class="sliders"></div>
       </div>
-    </div>
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
   </div>
 </div>
 <script>
+//code for snapping slider
+var sliders = document.getElementsByClassName('sliders');
+for(var i =0; i<sliders.length; i++){
+  noUiSlider.create(sliders[i], {
+    start: [1],
+    step: 1,
+    orientation:"horizontal",
+    range:{
+      'min':[1],
+      'max': [5]
+    },
+  });
+};
+//code for position each slider around a circle
+var numItems = $(".circle_container .sliders").length;
+var start = 0;
+var step = (2*Math.PI)/numItems;
+$(".circle_container .sliders").each(function(index){
+  var radius = ($(".circle_container").width() - $(this).width())/2;
+  var tmpTop = (($(".circle_container").height()/2) + radius * Math.sin(start)) - ($(this).height()/2);
+  var tmpLeft = (($(".circle_container").width()/2) + radius * Math.cos(start)) - ($(this).width()/2);
+  start += step;
+
+  $(this).css("top",tmpTop);
+  $(this).css("left",tmpLeft);
+  // $(this).css('transform','rotate('+90+'deg)');
+});
+
 var qnumber = 1;
 $('#qnum').text(qnumber);
 

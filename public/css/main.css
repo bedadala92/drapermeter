@@ -558,6 +558,7 @@ div .row {
 #q2,#q3,#q4,#q5,#q6,#q7,#q8,#q9{
   display:none;
 }
+
 .bar{
   width:20px;
   height:80px;
@@ -567,15 +568,20 @@ div .row {
   left:115px;
   /*left:50%;*/
 }
+
+.circle_container .sliders{
+  position: absolute;
+  z-index:2;
+  width:100px;
+}
+
 .circle_container{
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background-color: brown;
-  /*opacity:0.3;*/
+  width: 500px;
+  height: 500px;
+  /*border-radius: 50%;*/
   position:relative;
   z-index:1;
-  transform: rotate(-10deg)
+  /*transform: rotate(-10deg);*/
 }
 
 .bar.currentbar{
@@ -586,5 +592,5 @@ div .row {
 
 .rotated{
   transition: 2s linear;
-  transform: rotate(30deg);
+  transform: rotate(90deg);
 }
