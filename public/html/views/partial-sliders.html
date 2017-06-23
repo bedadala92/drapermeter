@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="background-color:yellow; height:100%">Image</div>
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
-    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="background-color:yellow; height:100%; padding-top:50px">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="background-color:none; height:100%; padding-top:50px">
       <div style="width:100%; height:100px; background-color:pink; border-radius:10px; display:inline-block">
         <div style="text-align:center">Question <span id="qnum"></span> of <span>9</span></div>
         <div class="questions" style="text-align:center">
@@ -15,7 +15,7 @@
             <div id="q7" >This Ad has a high production quality</div>
             <div id="q8" >This Ad has great copy</div>
             <div id="q9" class="last">This Ad was too long / too informative</div>
-          <button id="next">Next</button><br>
+          <button id="next" >Next</button><br>
           <button id="back" disabled="disabled">Back</button>
         </div>
       </div>
@@ -34,17 +34,118 @@
   </div>
 </div>
 <script>
+var qnumber = 1;
+$('#qnum').text(qnumber);
+
+// function rotateFront(){
+//   var angle = ($('.circle_container').data('angle')) || 0;
+//   var still = ($('.sliders').data('still')) || 0;
+//   angle += 40;
+//   still -= 40;
+//   $('.circle_container').css({'transform': 'rotate(' + angle + 'deg)'});
+//   $('.circle_container').data('angle', angle);
+//   $('.sliders').css({'transform': 'rotate(' + still + 'deg)'});
+//   $('.sliders').data('still', still);
+//   console.log(angle);
+//   console.log(still);
+//
+//   qnumber = qnumber+1;
+//   $('#qnum').text(qnumber);
+//
+//   $('.current').removeClass('current').hide()
+//     .next().show().addClass('current');
+//   if($('.current').hasClass('last')){
+//     $('#next').attr('disabled',true);
+//   }
+//   $('#back').attr('disabled', null);
+// };
+//
+// function rotateBack(){
+//   var angle = ($('.circle_container').data('angle')) || 0;
+//   var still = ($('.sliders').data('still')) || 0;
+//   angle -= 40;
+//   still += 40;
+//   $('.circle_container').css({'transform': 'rotate(' + angle + 'deg)'});
+//   $('.circle_container').data('angle', angle);
+//   $('.sliders').css({'transform': 'rotate(' + still + 'deg)'});
+//   $('.sliders').data('still', still);
+//   console.log(angle);
+//   console.log(still);
+//
+//   qnumber = qnumber-1;
+//   $('#qnum').text(qnumber);
+//
+//   $('.current').removeClass('current').hide()
+//       .prev().show().addClass('current');
+//   if ($('.current').hasClass('first')) {
+//       $('#back').attr('disabled', true);
+//   }
+//   $('#next').attr('disabled', null);
+// };
+var nextAngle=0;
+var reduceAngle =0;
+
+
+  $('#next').on('click',function(){
+      nextAngle += 40;
+      reduceAngle -= 40;
+    // console.log(nextAngle);
+    $('.circle_container').rotate({animateTo: nextAngle});
+    $('.sliders').rotate({animateTo:reduceAngle});
+    qnumber = qnumber+1;
+    $('#qnum').text(qnumber);
+
+    $('.current').removeClass('current').hide()
+      .next().show().addClass('current');
+    if($('.current').hasClass('last')){
+      $('#next').attr('disabled',true);
+    }
+    $('#back').attr('disabled', null);
+
+  });
+
+  $('#back').on("click",function() {
+    nextAngle -= 40;
+    reduceAngle += 40;
+    $('.circle_container').rotate({animateTo:nextAngle});
+    $('.sliders').rotate({animateTo:reduceAngle});
+
+    qnumber = qnumber-1;
+    $('#qnum').text(qnumber);
+
+    $('.current').removeClass('current').hide()
+        .prev().show().addClass('current');
+    if ($('.current').hasClass('first')) {
+        $('#back').attr('disabled', true);
+    }
+    $('#next').attr('disabled', null);
+
+});
+
+$(document).ready(function(){
+  var range_all_sliders = {
+    'min': ['SD'],
+    '25%': ['D'],
+    '50%': ['N'],
+    '75%': ['SA'],
+    'max': ['A']
+  }
 //code for snapping slider
 var sliders = document.getElementsByClassName('sliders');
 for(var i =0; i<sliders.length; i++){
   noUiSlider.create(sliders[i], {
-    start: [1],
+    start: [3],
+    pips: {
+      mode: 'values',
+      values:[1,2,3,4,5],
+      density: 4
+    },
     step: 1,
     orientation:"horizontal",
     range:{
       'min':[1],
       'max': [5]
-    },
+    }
   });
 };
 //code for position each slider around a circle
@@ -65,53 +166,7 @@ $(".circle_container .sliders").each(function(index){
 var qnumber = 1;
 $('#qnum').text(qnumber);
 
-var nextAngle=0;
-var reduceAngle =0;
-var reduceBackAngle = 0;
-function getNextAngle(){
-  nextAngle = nextAngle+40;
-  reduceAngle -= 40;
-  return nextAngle;
-};
-function getBackAngle(){
-  nextAngle -= 40;
-  reduceAngle += 40;
-  return nextAngle;
-};
-
-//click magic
-
-$('#next').each(function(){
-  $(this).on("click", function(){
-      $('.circle_container').rotate({animateTo: getNextAngle()});
-      $('.sliders').rotate({animateTo:reduceAngle});
-      qnumber = qnumber+1;
-      $('#qnum').text(qnumber);
-
-      $('.current').removeClass('current').hide()
-        .next().show().addClass('current');
-      if($('.current').hasClass('last')){
-        $('#next').attr('disabled',true);
-      }
-      $('#back').attr('disabled', null);
-  })
-});
-
-//
-  $('#back').on("click",function() {
-
-    $('.circle_container').rotate({animateTo: getBackAngle()});
-    $('.sliders').rotate({animateTo:reduceAngle});
-
-    qnumber = qnumber-1;
-    $('#qnum').text(qnumber);
-
-    $('.current').removeClass('current').hide()
-        .prev().show().addClass('current');
-    if ($('.current').hasClass('first')) {
-        $('#back').attr('disabled', true);
-    }
-    $('#next').attr('disabled', null);
 
 });
+
 </script>

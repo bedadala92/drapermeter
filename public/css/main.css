@@ -572,7 +572,7 @@ div .row {
 .circle_container .sliders{
   position: absolute;
   z-index:2;
-  width:100px;
+  width:120px;
 }
 
 .circle_container{
@@ -581,11 +581,15 @@ div .row {
   /*border-radius: 50%;*/
   position:relative;
   z-index:1;
-  /*transform: rotate(-10deg);*/
 }
 
 .bar.currentbar{
   border-width:3px;
   border-style:solid;
   border-color:green;
+}
+
+.questions {
+  position: relative;
+  z-index: 10;
 }
