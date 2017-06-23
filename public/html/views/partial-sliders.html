@@ -20,15 +20,15 @@
         </div>
       </div>
       <div class="circle_container">
-      <div class="sliders" style="background-color:blue"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
-      <div class="sliders"></div>
+      <div class="sliders" id="s1" style="background-color:blue"></div>
+      <div class="sliders" id="s2"></div>
+      <div class="sliders" id="s3"></div>
+      <div class="sliders" id="s4"></div>
+      <div class="sliders" id="s5"></div>
+      <div class="sliders" id="s6"></div>
+      <div class="sliders" id="s7"></div>
+      <div class="sliders" id="s8"></div>
+      <div class="sliders" id="s9"></div>
       </div>
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Gap</div>
   </div>
@@ -37,51 +37,6 @@
 var qnumber = 1;
 $('#qnum').text(qnumber);
 
-// function rotateFront(){
-//   var angle = ($('.circle_container').data('angle')) || 0;
-//   var still = ($('.sliders').data('still')) || 0;
-//   angle += 40;
-//   still -= 40;
-//   $('.circle_container').css({'transform': 'rotate(' + angle + 'deg)'});
-//   $('.circle_container').data('angle', angle);
-//   $('.sliders').css({'transform': 'rotate(' + still + 'deg)'});
-//   $('.sliders').data('still', still);
-//   console.log(angle);
-//   console.log(still);
-//
-//   qnumber = qnumber+1;
-//   $('#qnum').text(qnumber);
-//
-//   $('.current').removeClass('current').hide()
-//     .next().show().addClass('current');
-//   if($('.current').hasClass('last')){
-//     $('#next').attr('disabled',true);
-//   }
-//   $('#back').attr('disabled', null);
-// };
-//
-// function rotateBack(){
-//   var angle = ($('.circle_container').data('angle')) || 0;
-//   var still = ($('.sliders').data('still')) || 0;
-//   angle -= 40;
-//   still += 40;
-//   $('.circle_container').css({'transform': 'rotate(' + angle + 'deg)'});
-//   $('.circle_container').data('angle', angle);
-//   $('.sliders').css({'transform': 'rotate(' + still + 'deg)'});
-//   $('.sliders').data('still', still);
-//   console.log(angle);
-//   console.log(still);
-//
-//   qnumber = qnumber-1;
-//   $('#qnum').text(qnumber);
-//
-//   $('.current').removeClass('current').hide()
-//       .prev().show().addClass('current');
-//   if ($('.current').hasClass('first')) {
-//       $('#back').attr('disabled', true);
-//   }
-//   $('#next').attr('disabled', null);
-// };
 var nextAngle=0;
 var reduceAngle =0;
 
@@ -148,6 +103,19 @@ for(var i =0; i<sliders.length; i++){
     }
   });
 };
+//code to change color of the marker on drag
+$("#s1,#s2,#s3,#s4,#s5,#s6,#s7,#s8,#s9,#s10").each(function(){
+  console.log(this.noUiSlider.get());
+  this.noUiSlider.on('update',function(values,handle){
+    // console.log("Hello"+this.id);
+    console.log(values[handle]);
+    if(values[handle] == '1.00'){
+      $('.noUi-marker-large').css('background-color','yellow');
+    }
+  });
+});
+
+
 //code for position each slider around a circle
 var numItems = $(".circle_container .sliders").length;
 var start = 0;
