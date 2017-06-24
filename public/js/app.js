@@ -25,6 +25,24 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'html/views/partial-sliders.html'
     })
 
+    .state('sliders.ad1',{
+      // abstract: true,
+      url: '/sliders',
+      templateUrl: 'html/views/partial-sliders-ad1.html'
+    })
+
+    .state('sliders.ad2',{
+      // abstract: true,
+      url: '/sliders',
+      templateUrl: 'html/views/partial-sliders-ad2.html'
+    })
+
+    .state('sliders.ad3',{
+      // abstract: true,
+      url: '/sliders',
+      templateUrl: 'html/views/partial-sliders-ad3.html'
+    })
+
     .state('poll',{
       abstract: true,
       url: '/poll',

@@ -572,15 +572,16 @@ div .row {
 .circle_container .sliders{
   position: absolute;
   z-index:2;
-  width:120px;
+  width:90px;
 }
 
 .circle_container{
-  width: 500px;
-  height: 500px;
+  width: 420px;
+  height: 420px;
   /*border-radius: 50%;*/
   position:relative;
   z-index:1;
+  margin-bottom: 40px;
 }
 
 .bar.currentbar{
@@ -592,4 +593,56 @@ div .row {
 .questions {
   position: relative;
   z-index: 10;
+}
+
+.surveyquestion{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-align:center;
+  text-transform: uppercase;
+  font-size:11px;
+}
+
+.nextbutton{
+  width:3%;
+  position: absolute;
+  top: 45%;
+  margin-left: 5px;
+  margin-right:5px;
+}
+
+#next.btn-default {
+  border-color: transparent;
+}
+#back.btn-default {
+  border-color: transparent;
+}
+
+#next{
+  position:absolute;
+  left:90%;
+  top:35%;
+  width:2px;
+}
+
+#back{
+  position:absolute;
+  top:35%;
+  width:2px;
+}
+
+.adButton{
+  padding: 3px 3px;
+  width: 10%;
+  margin: 0 auto;
+  background-color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: 3px solid #31302B;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-size: 14px;
+  margin-right: 15px;
 }
