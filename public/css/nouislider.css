@@ -162,7 +162,7 @@
 }
 .noUi-pips {
   position: absolute;
-  color: #fff;
+  color: #f2f2f2;
 }
 /* Values;
  *
@@ -173,7 +173,7 @@
   text-align: center;
 }
 .noUi-value-sub {
-  color: #FFF;
+  color: none;
   font-size: 0px;
 }
 /* Markings;
