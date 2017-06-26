@@ -598,9 +598,47 @@ div .row {
     font-size: 12px;
     display:block;
     margin:auto;
-    margin-top:95%;
+    margin-top:90%;
     margin-left:40%;
     /*margin-bottom:20px*/
+}
+.circle_container #pAd{
+  position:absolute;
+  padding: 5px 5px;
+  width: 25%;
+  margin: 0 auto;
+  background-color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-size: 12px;
+  display:block;
+  margin:auto;
+  margin-top:105%;
+  margin-left:20%;
+  border-color: #31302B !important;
+  border: 3px solid;
+}
+.circle_container #nAd{
+  position:absolute;
+  padding: 5px 5px;
+  width: 25%;
+  margin: 0 auto;
+  background-color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-size: 12px;
+  display:block;
+  margin:auto;
+  margin-top:105%;
+  margin-left:55%;
+  border-color: #31302B !important;
+  border: 3px solid;
 }
 
 .circle_container{
@@ -649,10 +687,10 @@ div .row {
   margin-right:5px;
 }
 
-#next.btn-default {
+#next {
   border-color: transparent;
 }
-#back.btn-default {
+#back {
   border-color: transparent;
 }
 
@@ -724,4 +762,11 @@ button.adButton:focus{
 
 div.container-fluid{
   padding-left:0px; padding-right:0px
+}
+
+#pAd{
+
+}
+#nAd{
+
 }

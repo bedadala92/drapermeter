@@ -28,19 +28,22 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
     .state('sliders.ad1',{
       // abstract: true,
       url: '/sliders',
-      templateUrl: 'html/views/partial-sliders-ad1.html'
+      templateUrl: 'html/views/partial-sliders-ad1.html',
+      controller: 'Controller1'
     })
 
     .state('sliders.ad2',{
       // abstract: true,
       url: '/sliders',
-      templateUrl: 'html/views/partial-sliders-ad2.html'
+      templateUrl: 'html/views/partial-sliders-ad2.html',
+      controller: 'Controller2'
     })
 
     .state('sliders.ad3',{
       // abstract: true,
       url: '/sliders',
-      templateUrl: 'html/views/partial-sliders-ad3.html'
+      templateUrl: 'html/views/partial-sliders-ad3.html',
+      controller: 'Controller3'
     })
 
     .state('poll',{
@@ -102,9 +105,32 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
     });
 });
 
-draperMeter.controller('pollController', function($scope, $http) {
+draperMeter.controller('Controller1',function($rootScope, $state){
+  $rootScope.nextPage = function(target){
+     $state.go('sliders.ad2');
+  };
+  $rootScope.prevPage = function(target){
+     $state.go('sliders.ad1');
+  };
+});
+draperMeter.controller('Controller2',function($rootScope, $state){
+  $rootScope.nextPage = function(target){
+     $state.go('sliders.ad3');
+  };
+  $rootScope.prevPage = function(target){
+     $state.go('sliders.ad1');
+  };
+});
+draperMeter.controller('Controller3',function($rootScope, $state){
+  $rootScope.nextPage = function(target){
+     $state.go('sliders.ad3');
+  };
+  $rootScope.prevPage = function(target){
+     $state.go('sliders.ad2');
+  };
+});
 
-
+draperMeter.controller('pollController', function($scope, $http, $rootScope) {
 
   $scope.formData = {};
 
