@@ -13,13 +13,13 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 module.exports = router;
 
 //connect to mongodb
-if(env === 'development'){
-  mongoose.connect('mongodb://localhost/drapermeter');
-} else {
-  mongoose.connect('mongodb://bedadala92:sandeep92@ds139791.mlab.com:39791/drapermeter');
-}
-
-mongoose.Promise = global.Promise;
+// if(env === 'development'){
+//   mongoose.connect('mongodb://localhost/drapermeter');
+// } else {
+//   mongoose.connect('mongodb://bedadala92:sandeep92@ds139791.mlab.com:39791/drapermeter');
+// }
+//
+// mongoose.Promise = global.Promise;
 
 
 //initialize body-parser
@@ -31,7 +31,7 @@ var routes = require('./api/routes/pollRoutes.js');
 routes(server);
 
 //config files
-var db = require('./config/db');
+// var db = require('./config/db');
 
 //set our port
 var port = process.env.PORT || 8080;
