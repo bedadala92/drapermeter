@@ -301,7 +301,7 @@ form .buttons .submit:hover {background-color: #14892c;}
 .adfit{
   width:57.2%;
   position:absolute;
-  top:40.5%;right:1%; left:0; margin:auto;
+  top:36.5%;right:1%; left:0; margin:auto;
 }
 /*animated views*/
 #poll-views.ng-enter,
@@ -753,7 +753,7 @@ button.adButton:focus{
   text-align: center;
 }
 .row{
-  overflow: hidden;
+  overflow: show;
 }
 [class*="col-"] {
   margin-bottom: -13%;
