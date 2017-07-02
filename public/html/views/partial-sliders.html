@@ -45,9 +45,10 @@
           <div class="sliders" id="s9"></div>
           <div id="choice"></div>
           </div>
-          <button class="submit" type="submit" ng-click="submitAns()" value="Submit" onclick="sendResponse()">Submit</button>
-          <button ui-sref-active="active"  style="border-color:transparent" ng-click = "prevPage()" type="button" id="pAd"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-triangle-left"></span>Back Ad</button>
-          <button ui-sref-active="active"  style="border-color: transparent" ng-click = "nextPage()" type="button" id="nAd" class="btn btn-default btn-sm">Next Ad<span class="glyphicon glyphicon-triangle-right"></span></button>
+
+          <button ng-if="getCurrentState() == 'sliders.ad3'" class="submit" type="submit" ng-click="submitAns()" value="Submit">Submit</button>
+          <!-- <button ui-sref-active="active"  style="border-color:transparent" ng-click = "prevPage()" type="button" id="pAd"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-triangle-left"></span>Back Ad</button> -->
+          <button ng-if="getCurrentState() != 'sliders.ad3'" ui-sref-active="active"  style="border-color: transparent" ng-click = "submitAdAns();nextPage()" type="button" id="nAd" class="btn btn-default btn-sm">Next Ad<span class="glyphicon glyphicon-triangle-right"></span></button>
       </div>
   </div>
 </div>
@@ -60,6 +61,8 @@
 
 // var $body = $("#whichad");
 // var $rootScope = $body.scope().$root;
+
+
 var gl;
 var origins
 var qnumber = 1;
@@ -67,6 +70,8 @@ $('#qnum').text(qnumber);
 
 var nextAngle=0;
 var reduceAngle =0;
+
+
 
 var items = $('.sliders');
 var currentItem = items.filter('.currentSlider');
@@ -77,8 +82,53 @@ items.each(function(){
     currentItem.removeAttr("disabled");
 });
 
+//When Next Ad is Called
+$("#nAd").on('click',function(){
+  //Sliders
+  currentItem.removeClass('currentSlider');
+  currentItem.css('background-color','#D6D7D9');
+  currentItem = $("#s1");
+  currentItem.addClass('currentSlider');
+  currentItem.css('background-color','#464646');
+  items.each(function(){
+    var item = $(this);
+      item[0].noUiSlider.set(3);
+      item[0].setAttribute('disabled',true);
+      currentItem.removeAttr("disabled");
+  //questions
+  $('.current').removeClass('current').hide();
+  $('.first').show().addClass('current');
+  });
+  //question numbers
+  qnumber = 1;
+  $('#qnum').text(qnumber);
 
+  $('#next').attr('disabled',null);
+});
 
+//When Last Ad is Called
+// $("#pAd").on('click',function(){
+//   //Sliders
+//   currentItem.removeClass('currentSlider');
+//   currentItem.css('background-color','#D6D7D9');
+//   currentItem = $("#s1");
+//   currentItem.addClass('currentSlider');
+//   currentItem.css('background-color','#464646');
+//   items.each(function(){
+//     var item = $(this);
+//       item[0].setAttribute('disabled',true);
+//       currentItem.removeAttr("disabled");
+//
+//   //questions
+//   $('.current').removeClass('current').hide();
+//   $('.first').show().addClass('current');
+//   });
+//   //question numbers
+//   qnumber = 1;
+//   $('#qnum').text(qnumber);
+// });
+
+//When next question is called
   $('#next').on('click',function(){
     currentItem.css('background-color','#D6D7D9');
     var nextItem = currentItem.next();
@@ -112,6 +162,7 @@ items.each(function(){
     $('#back').attr('disabled', null);
     });
 
+//when previous question is called
   $('#back').on("click",function() {
     currentItem.css('background-color','#D6D7D9');
     var nextItem = currentItem.prev();
@@ -148,13 +199,13 @@ items.each(function(){
 
 $(document).ready(function(){
   // debugger;
-  var range_all_sliders = {
-    'min': ['SD'],
-    '25%': ['D'],
-    '50%': ['N'],
-    '75%': ['SA'],
-    'max': ['A']
-  }
+  // var range_all_sliders = {
+  //   'min': ['SD'],
+  //   '25%': ['D'],
+  //   '50%': ['N'],
+  //   '75%': ['SA'],
+  //   'max': ['A']
+  // }
 //code for snapping slider
 var sliders = document.getElementsByClassName('sliders');
 for(var i =0; i<sliders.length; i++){
@@ -173,7 +224,6 @@ for(var i =0; i<sliders.length; i++){
     }
   });
 };
-
 
 //code to change color of the marker on drag
 $('#choice').text('Neutral');
@@ -221,7 +271,6 @@ $(".circle_container .sliders").each(function(index){
 //   console.log(slider.noUiSlider.get());
 //   console.log($scope);
 // })
-
 
 var qnumber = 1;
 $('#qnum').text(qnumber);

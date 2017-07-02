@@ -147,8 +147,18 @@ draperMeter.controller('Controller3',function($rootScope, $state){
 
 draperMeter.controller('pollController', function($scope, $http, $rootScope, $state) {
 
+  $scope.init = function () {
+    $scope.gender = "male";
+    $scope.ageArray = ["18-24", "25-34", "35-44", "45 and older"];
+    $scope.age = $scope.ageArray[0];
+  };
+  $scope.adNames = {
+    "sliders.ad1" : "AD 1",
+    "sliders.ad2" : "AD 2",
+    "sliders.ad3" : "AD 3"
+  };
   $scope.finalAnswers = {
-    'sliders.ad1' : { s1 : 0.0,
+    'AD 1' : { s1 : 0.0,
                         s2 : 0.0,
                         s3 : 0.0,
                         s4 : 0.0,
@@ -158,7 +168,7 @@ draperMeter.controller('pollController', function($scope, $http, $rootScope, $st
                         s8 : 0.0,
                         s9 : 0.0
                     } ,
-    'sliders.ad2' : { s1 : 0.0,
+    'AD 2' : { s1 : 0.0,
                         s2 : 0.0,
                         s3 : 0.0,
                         s4 : 0.0,
@@ -168,7 +178,7 @@ draperMeter.controller('pollController', function($scope, $http, $rootScope, $st
                         s8 : 0.0,
                         s9 : 0.0
                     } ,
-    'sliders.ad3' : { s1 : 0.0,
+    'AD 3' : { s1 : 0.0,
                         s2 : 0.0,
                         s3 : 0.0,
                         s4 : 0.0,
@@ -179,69 +189,115 @@ draperMeter.controller('pollController', function($scope, $http, $rootScope, $st
                         s9 : 0.0
                     } ,
   };
-  $scope.submitAns = function ()
+  $http.get('/polls')
+    .success(function(data){
+      $scope.polls = data;
+      console.log(data);
+    })
+    .error(function(data){
+      console.log('Error: ' + data);
+    });
+
+$scope.getCurrentState = function () {
+  return $state.current.name;
+}
+    $scope.submitAdAns = function() {
+      console.log($scope.gender);
+      for(i=1;i<10;i++){
+        var slider = document.getElementById("s"+i);
+        var currentAd = $state.current.name;
+
+        $scope.finalAnswers[$scope.adNames[currentAd]][slider.id] = slider.noUiSlider.get();
+      }
+    }
+  $scope.submitAns = function()
   {
-    var slider = document.getElementsByClassName("currentSlider")[0];
-    var currentAd = $state.current.name;
-     $scope.finalAnswers[currentAd][slider.id] = slider.noUiSlider.get();
-     console.log($scope.finalAnswers);
-  };
+    // var ads = {
+    //   "sliders.ad1" : ""
+    // }
+    for(i=1;i<10;i++){
+      var slider = document.getElementById("s"+i);
+      var currentAd = $state.current.name;
 
-
-  $scope.formData = {};
-
-
-$scope.RadioChange = function(value){
-  value = $scope.formData;
-    console.log(value);
-    for(i=1; i<4;i++){
-      if(value.group1 == "agree_"+i || value.group2 == "agree_"+i ||value.group3 == "agree_"+i){
-        console.log('you clicked agree');
-        $("#A2").css("visibility", "visible");
-        $("#A1").css("visibility", "hidden");
-        $("#A3").css("visibility", "hidden");
-        $("#A4").css("visibility", "hidden");
-        $("#A5").css("visibility", "hidden");
-        }
-        else if(value.group1 == "strong_agree_"+i || value.group2 == "strong_agree_"+i || value.group3 == "strong_agree_"+i){
-          console.log('you clicked strongly agree');
-          $("#A3").css("visibility", "visible");
-          $("#A1").css("visibility", "hidden");
-          $("#A2").css("visibility", "hidden");
-          $("#A4").css("visibility", "hidden");
-          $("#A5").css("visibility", "hidden");
-        }
-        else if(value.group1 == "disagree_"+i || value.group2 == "disagree_"+i || value.group3 == "disagree_"+i){
-          console.log('you clicked disagree');
-          $("#A4").css("visibility", "visible");
-          $("#A1").css("visibility", "hidden");
-          $("#A2").css("visibility", "hidden");
-          $("#A3").css("visibility", "hidden");
-          $("#A5").css("visibility", "hidden");
-        }
-        else if(value.group1 == "strong_disagree_"+i || value.group2 == "strong_disagree_"+i || value.group3 == "strong_disagree_"+i){
-          console.log('you clicked strongly disagree');
-          $("#A5").css("visibility", "visible");
-          $("#A1").css("visibility", "hidden");
-          $("#A2").css("visibility", "hidden");
-          $("#A3").css("visibility", "hidden");
-          $("#A4").css("visibility", "hidden");
-        }
-        else if(value.group1 == "neutral_"+i || value.group2 == "neutral_"+i || value.group3 == "neutral_"+i){
-          console.log('you clicked neutral');
-          $("#A1").css("visibility", "visible");
-          $("#A2").css("visibility", "hidden");
-          $("#A3").css("visibility", "hidden");
-          $("#A4").css("visibility", "hidden");
-          $("#A5").css("visibility", "hidden");
-        }
+      $scope.finalAnswers[$scope.adNames[currentAd]][slider.id] = slider.noUiSlider.get();
     }
 
-};
-  // rvalue = $scope.formData;
-  // if(rvalue == "sagree"){
-  //   $scope.getElementById('A2').style.visibility = visible;
-  // }
+    // var finalData = {
+    //   "Gender" : $scope.gender,
+    //   "age" : $scope.age,
+    //   $scope.finalAnswers.gender
+    // }
+
+    $scope.finalAnswers.Gender = $scope.gender;
+    $scope.finalAnswers.age = $scope.age;
+
+    console.log($scope.finalAnswers);
+    $http.post('/polls', $scope.finalAnswers)
+      .success(function(){
+        //$scope.polls = $scope.finalAnswers;
+        console.log("Hello");
+      })
+      .error(function(data){
+        console.log('Error: ' + data);
+      });
+    //   //console.log($scope.finalAnswers);
+    // var slider = document.getElementsByClassName("currentSlider")[0];
+    // var currentAd = $state.current.name;
+    //  $scope.finalAnswers[currentAd][slider.id] = slider.noUiSlider.get();
+    //  console.log($scope.finalAnswers);
+  };
+
+
+//   $scope.formData = {};
+//
+//
+// $scope.RadioChange = function(value){
+//   value = $scope.formData;
+//     console.log(value);
+//     for(i=1; i<4;i++){
+//       if(value.group1 == "agree_"+i || value.group2 == "agree_"+i ||value.group3 == "agree_"+i){
+//         console.log('you clicked agree');
+//         $("#A2").css("visibility", "visible");
+//         $("#A1").css("visibility", "hidden");
+//         $("#A3").css("visibility", "hidden");
+//         $("#A4").css("visibility", "hidden");
+//         $("#A5").css("visibility", "hidden");
+//         }
+//         else if(value.group1 == "strong_agree_"+i || value.group2 == "strong_agree_"+i || value.group3 == "strong_agree_"+i){
+//           console.log('you clicked strongly agree');
+//           $("#A3").css("visibility", "visible");
+//           $("#A1").css("visibility", "hidden");
+//           $("#A2").css("visibility", "hidden");
+//           $("#A4").css("visibility", "hidden");
+//           $("#A5").css("visibility", "hidden");
+//         }
+//         else if(value.group1 == "disagree_"+i || value.group2 == "disagree_"+i || value.group3 == "disagree_"+i){
+//           console.log('you clicked disagree');
+//           $("#A4").css("visibility", "visible");
+//           $("#A1").css("visibility", "hidden");
+//           $("#A2").css("visibility", "hidden");
+//           $("#A3").css("visibility", "hidden");
+//           $("#A5").css("visibility", "hidden");
+//         }
+//         else if(value.group1 == "strong_disagree_"+i || value.group2 == "strong_disagree_"+i || value.group3 == "strong_disagree_"+i){
+//           console.log('you clicked strongly disagree');
+//           $("#A5").css("visibility", "visible");
+//           $("#A1").css("visibility", "hidden");
+//           $("#A2").css("visibility", "hidden");
+//           $("#A3").css("visibility", "hidden");
+//           $("#A4").css("visibility", "hidden");
+//         }
+//         else if(value.group1 == "neutral_"+i || value.group2 == "neutral_"+i || value.group3 == "neutral_"+i){
+//           console.log('you clicked neutral');
+//           $("#A1").css("visibility", "visible");
+//           $("#A2").css("visibility", "hidden");
+//           $("#A3").css("visibility", "hidden");
+//           $("#A4").css("visibility", "hidden");
+//           $("#A5").css("visibility", "hidden");
+//         }
+//     }
+//
+// };
 
   $http.get('/polls')
     .success(function(data){
@@ -251,16 +307,4 @@ $scope.RadioChange = function(value){
     .error(function(data){
       // console.log('Error: ' + data);
     });
-
-  $scope.createPoll = function(){
-    $http.post('/polls', $scope.formData)
-      .success(function(data){
-        $scope.polls = $scope.formData;
-        console.log($scope.formData);
-      })
-      .error(function(data){
-        // console.log('Error: ' + data);
-      });
-
-  };
 });
