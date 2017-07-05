@@ -30,59 +30,11 @@ server.post('/polls', function(req,res){
   console.log(newPoll);
   var $pollCreated = newPoll.save();
   $pollCreated.then(function(err,polls){
-    //console.log("here");
     if(err){
       res.send(err);
     }
   });
-  // Poll.create({
-  //   slider1: {
-  //     type: String,
-  //     options: {
-  //       s1:req.body.s1,
-  //       s2:req.body.s1,
-  //       s3:req.body.s1,
-  //       s4:req.body.s1,
-  //       s5:req.body.s1,
-  //       s6:req.body.s1,
-  //       s7:req.body.s1,
-  //       s8:req.body.s1,
-  //       s9:req.body.s1,
-  //     }
-  //   },
-  //   slider2: {
-  //     type: String,
-  //     options: {
-  //       s1:req.body.s2,
-  //       s2:req.body.s2,
-  //       s3:req.body.s2,
-  //       s4:req.body.s2,
-  //       s5:req.body.s2,
-  //       s6:req.body.s2,
-  //       s7:req.body.s2,
-  //       s8:req.body.s2,
-  //       s9:req.body.s2,
-  //     }
-  //   },
-  //   slider3: {
-  //     type: String,
-  //     options: {
-  //       s1:req.body.s3,
-  //       s2:req.body.s3,
-  //       s3:req.body.s3,
-  //       s4:req.body.s3,
-  //       s5:req.body.s3,
-  //       s6:req.body.s3,
-  //       s7:req.body.s3,
-  //       s8:req.body.s3,
-  //       s9:req.body.s3,
-  //     }
-  //   }
-  // }, function(err,polls){
-  //   if(err){
-  //     res.send(err);
-  //   }
-  // });
+
 });
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';

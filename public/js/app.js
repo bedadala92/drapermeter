@@ -14,36 +14,28 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
     })
 
     .state('info',{
-      // abstract: true,
       url: '/info',
       templateUrl: 'html/views/partial-info.html'
     })
 
     .state('sliders',{
-      // abstract: true,
       url: '/sliders',
       templateUrl: 'html/views/partial-sliders.html'
     })
 
     .state('sliders.ad1',{
-      // abstract: true,
       url: '/sliders',
       templateUrl: 'html/views/partial-sliders-ad1.html',
       controller: 'Controller1'
-      // params:{
-      //   id:null
-      // }
     })
 
     .state('sliders.ad2',{
-      // abstract: true,
       url: '/sliders',
       templateUrl: 'html/views/partial-sliders-ad2.html',
       controller: 'Controller2'
     })
 
     .state('sliders.ad3',{
-      // abstract: true,
       url: '/sliders',
       templateUrl: 'html/views/partial-sliders-ad3.html',
       controller: 'Controller3'
@@ -109,39 +101,23 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
 });
 
 draperMeter.controller('Controller1',function($rootScope, $state, $stateParams){
-  console.log($state.current.name);
-  // $state.go('sliders.ad1',{id:"ad1"});
   $rootScope.id = $state.current.name;
   $rootScope.nextPage = function(target){
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
      $state.go('sliders.ad2');
-
-  };
-  $rootScope.prevPage = function(target){
-     $state.go('sliders.ad1');
   };
 });
 draperMeter.controller('Controller2',function($rootScope, $state){
-  console.log($state.current.name);
   $rootScope.id = $state.current.name;
   $rootScope.nextPage = function(target){
      $state.go('sliders.ad3');
-
-  };
-  $rootScope.prevPage = function(target){
-     $state.go('sliders.ad1');
   };
 });
 draperMeter.controller('Controller3',function($rootScope, $state){
-  console.log($state.current.name);
   $rootScope.id = $state.current.name;
   $rootScope.nextPage = function(target){
      $state.go('sliders.ad3');
-
-  };
-  $rootScope.prevPage = function(target){
-     $state.go('sliders.ad2');
   };
 });
 
@@ -192,7 +168,7 @@ draperMeter.controller('pollController', function($scope, $http, $rootScope, $st
   $http.get('/polls')
     .success(function(data){
       $scope.polls = data;
-      console.log(data);
+      // console.log(data);
     })
     .error(function(data){
       console.log('Error: ' + data);
@@ -200,37 +176,25 @@ draperMeter.controller('pollController', function($scope, $http, $rootScope, $st
 
 $scope.getCurrentState = function () {
   return $state.current.name;
-}
+};
     $scope.submitAdAns = function() {
-      console.log($scope.gender);
       for(i=1;i<10;i++){
         var slider = document.getElementById("s"+i);
         var currentAd = $state.current.name;
 
         $scope.finalAnswers[$scope.adNames[currentAd]][slider.id] = slider.noUiSlider.get();
       }
-    }
+    };
   $scope.submitAns = function()
   {
-    // var ads = {
-    //   "sliders.ad1" : ""
-    // }
     for(i=1;i<10;i++){
       var slider = document.getElementById("s"+i);
       var currentAd = $state.current.name;
 
       $scope.finalAnswers[$scope.adNames[currentAd]][slider.id] = slider.noUiSlider.get();
     }
-
-    // var finalData = {
-    //   "Gender" : $scope.gender,
-    //   "age" : $scope.age,
-    //   $scope.finalAnswers.gender
-    // }
-
     $scope.finalAnswers.Gender = $scope.gender;
     $scope.finalAnswers.age = $scope.age;
-
     console.log($scope.finalAnswers);
     $http.post('/polls', $scope.finalAnswers)
       .success(function(){
@@ -240,64 +204,11 @@ $scope.getCurrentState = function () {
       .error(function(data){
         console.log('Error: ' + data);
       });
-    //   //console.log($scope.finalAnswers);
-    // var slider = document.getElementsByClassName("currentSlider")[0];
-    // var currentAd = $state.current.name;
-    //  $scope.finalAnswers[currentAd][slider.id] = slider.noUiSlider.get();
-    //  console.log($scope.finalAnswers);
-  };
+};
 
 
-//   $scope.formData = {};
-//
-//
-// $scope.RadioChange = function(value){
-//   value = $scope.formData;
-//     console.log(value);
-//     for(i=1; i<4;i++){
-//       if(value.group1 == "agree_"+i || value.group2 == "agree_"+i ||value.group3 == "agree_"+i){
-//         console.log('you clicked agree');
-//         $("#A2").css("visibility", "visible");
-//         $("#A1").css("visibility", "hidden");
-//         $("#A3").css("visibility", "hidden");
-//         $("#A4").css("visibility", "hidden");
-//         $("#A5").css("visibility", "hidden");
-//         }
-//         else if(value.group1 == "strong_agree_"+i || value.group2 == "strong_agree_"+i || value.group3 == "strong_agree_"+i){
-//           console.log('you clicked strongly agree');
-//           $("#A3").css("visibility", "visible");
-//           $("#A1").css("visibility", "hidden");
-//           $("#A2").css("visibility", "hidden");
-//           $("#A4").css("visibility", "hidden");
-//           $("#A5").css("visibility", "hidden");
-//         }
-//         else if(value.group1 == "disagree_"+i || value.group2 == "disagree_"+i || value.group3 == "disagree_"+i){
-//           console.log('you clicked disagree');
-//           $("#A4").css("visibility", "visible");
-//           $("#A1").css("visibility", "hidden");
-//           $("#A2").css("visibility", "hidden");
-//           $("#A3").css("visibility", "hidden");
-//           $("#A5").css("visibility", "hidden");
-//         }
-//         else if(value.group1 == "strong_disagree_"+i || value.group2 == "strong_disagree_"+i || value.group3 == "strong_disagree_"+i){
-//           console.log('you clicked strongly disagree');
-//           $("#A5").css("visibility", "visible");
-//           $("#A1").css("visibility", "hidden");
-//           $("#A2").css("visibility", "hidden");
-//           $("#A3").css("visibility", "hidden");
-//           $("#A4").css("visibility", "hidden");
-//         }
-//         else if(value.group1 == "neutral_"+i || value.group2 == "neutral_"+i || value.group3 == "neutral_"+i){
-//           console.log('you clicked neutral');
-//           $("#A1").css("visibility", "visible");
-//           $("#A2").css("visibility", "hidden");
-//           $("#A3").css("visibility", "hidden");
-//           $("#A4").css("visibility", "hidden");
-//           $("#A5").css("visibility", "hidden");
-//         }
-//     }
-//
-// };
+
+
 
   $http.get('/polls')
     .success(function(data){

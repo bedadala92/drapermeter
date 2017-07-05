@@ -45,26 +45,19 @@
           <div class="sliders" id="s9"></div>
           <div id="choice"></div>
           </div>
-
           <button ng-if="getCurrentState() == 'sliders.ad3'" class="submit" type="submit" ng-click="submitAns()" value="Submit">Submit</button>
           <!-- <button ui-sref-active="active"  style="border-color:transparent" ng-click = "prevPage()" type="button" id="pAd"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-triangle-left"></span>Back Ad</button> -->
+          <div id="nextbutton">
           <button ng-if="getCurrentState() != 'sliders.ad3'" ui-sref-active="active"  style="border-color: transparent" ng-click = "submitAdAns();nextPage()" type="button" id="nAd" class="btn btn-default btn-sm">Next Ad<span class="glyphicon glyphicon-triangle-right"></span></button>
+          </div>
       </div>
   </div>
 </div>
 </div>
 <script>
-// function sendResponse(){
-  //window.location.href ="http://localhost/phpmyadmin/sandeep/db_hit.php?name="+gl;
-// }
-// var hello = document.getElementById("whichad");
-
-// var $body = $("#whichad");
-// var $rootScope = $body.scope().$root;
-
 
 var gl;
-var origins
+var origins;
 var qnumber = 1;
 $('#qnum').text(qnumber);
 
@@ -83,7 +76,8 @@ items.each(function(){
 });
 
 //When Next Ad is Called
-$("#nAd").on('click',function(){
+$("#nextbutton").on('click','#nAd',function(){
+  // console.log("Endi ra idi");
   //Sliders
   currentItem.removeClass('currentSlider');
   currentItem.css('background-color','#D6D7D9');
@@ -102,7 +96,6 @@ $("#nAd").on('click',function(){
   //question numbers
   qnumber = 1;
   $('#qnum').text(qnumber);
-
   $('#next').attr('disabled',null);
 });
 
