@@ -650,7 +650,7 @@ div .row {
   position:relative;
   z-index:1;
   margin:auto;
-  top:10px;
+  top:25px;
 }
 
 .bar.currentbar{
