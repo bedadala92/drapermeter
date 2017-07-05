@@ -5,6 +5,7 @@
         <button ui-sref-active="active" ui-sref="sliders.ad1" class="adButton" type="button" class="btn btn-default btn-sm">Ad 1</button>
         <button ui-sref-active="active" ui-sref="sliders.ad2" class="adButton" type="button" class="btn btn-default btn-sm">Ad 2</button>
         <button ui-sref-active="active" ui-sref="sliders.ad3" class="adButton" type="button" class="btn btn-default btn-sm">Ad 3</button>
+        <!-- <div class="questions surveyquestion" id="adcopy" style="z-index:10; background-color:white">Yooooo</div> -->
       </div>
       <div style="position:relative; z-index: 1">
         <div class="hellohowareyou" ui-view></div>
@@ -17,9 +18,9 @@
       <!-- <div class="page-header"><a ui-sref="home"><span style="color: #df0606">DRAPER</span><span style="color:#333">METER</span></a></div> -->
       <div style="width:80%; height:100px; position:absolute;z-index:1; background-color:black;display:inline-block; margin-left:10px; margin-top:10px; left:8%"></div>
       <div style="width:80%; height:100px; position:absolute; z-index:2; background-color:white; border-style:solid;border-width:3px; border-color:black; display:inline-block;left:8%">
-        <button type="button" id="back" disabled="disabled" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-triangle-left"></span></button>
-        <button type="button" id="next" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-triangle-right"></span></button>
-        <div class="questions surveyquestion">Question <span id="qnum"></span> of <span>9</span>
+        <!-- <button type="button" id="back" disabled="disabled" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-triangle-left"></span></button> -->
+        <button type="button" id="next" class="btn btn-default btn-sm">Next Question</span></button>
+        <div class="questions surveyquestion">
         <div class="surveyquestion" style="text-align:center; font-weight:700; font-size:16px; text-transform:none; padding-top:5px">
             <div id="q1" class="first current">Have you seen a similar Ad before?</div>
             <div id="q2" >This Ad is different from others for such products</div>
@@ -45,7 +46,7 @@
           <div class="sliders" id="s9"></div>
           <div id="choice"></div>
           </div>
-          <button ng-if="getCurrentState() == 'sliders.ad3'" class="submit" type="submit" ng-click="submitAns()" value="Submit">Submit</button>
+          <button ng-if="getCurrentState() == 'sliders.ad3'" class="submit" type="submit" ng-click="submitAns();" value="Submit">Submit</button>
           <!-- <button ui-sref-active="active"  style="border-color:transparent" ng-click = "prevPage()" type="button" id="pAd"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-triangle-left"></span>Back Ad</button> -->
           <div id="nextbutton">
           <button ng-if="getCurrentState() != 'sliders.ad3'" ui-sref-active="active"  style="border-color: transparent" ng-click = "submitAdAns();nextPage()" type="button" id="nAd" class="btn btn-default btn-sm">Next Ad<span class="glyphicon glyphicon-triangle-right"></span></button>

@@ -17,6 +17,10 @@ draperMeter.config(function($stateProvider, $urlRouterProvider){
       url: '/info',
       templateUrl: 'html/views/partial-info.html'
     })
+    .state('thanks',{
+      url: '/thanks',
+      templateUrl: 'html/views/partial-thanks.html'
+    })
 
     .state('sliders',{
       url: '/sliders',
@@ -204,8 +208,8 @@ $scope.getCurrentState = function () {
       .error(function(data){
         console.log('Error: ' + data);
       });
+      $state.go('thanks');
 };
-
 
 
 
