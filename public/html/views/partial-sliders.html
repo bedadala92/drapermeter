@@ -22,17 +22,17 @@
         <button type="button" id="next" class="btn btn-default btn-sm">Next Question</span></button>
         <div class="questions surveyquestion">
         <div class="surveyquestion" style="text-align:center; font-weight:700; font-size:16px; text-transform:none; padding-top:5px">
-            <div id="q1" class="first current">Have you seen a similar Ad before?</div>
-            <div id="q2" >This Ad is different from others for such products</div>
-            <div id="q3" >This add contains multiple ideas / themes</div>
-            <div id="q4" >This Ad concept is very relevant to the product market</div>
-            <div id="q5" >I can connect/relate to the Ad's content</div>
-            <div id="q6" >It was easy to understand/interpret this Ad</div>
-            <div id="q7" >This Ad has a high production quality</div>
+            <div id="q1" class="first current">This Ad concept is fresh and unique</div>
+            <div id="q2" >This Ad concept is unpredictable</div>
+            <div id="q3" >This Ad concept is original (never seen before)</div>
+            <div id="q4" >This Ad makes sense (logical)</div>
+            <div id="q5" >This Ad is relevant to the brand</div>
+            <div id="q6" >This Ad is appropriate to me</div>
+            <div id="q7" >This Ad is very well crafted</div>
             <div id="q8" >This Ad has great copy</div>
-            <div id="q9" class="last">This Ad was too long / too informative</div>
+            <div id="q9" class="last">This Ad was easy to understand/interpret</div>
             <!-- <div ng-model="yo" id="whichad">{{id}}</div> -->
-          </div>
+        </div>
           </div>
           <div class="circle_container">
           <div class="sliders currentSlider" id="s1"></div>
@@ -124,6 +124,8 @@ $("#nextbutton").on('click','#nAd',function(){
 
 //When next question is called
   $('#next').on('click',function(){
+    $('#choice').text('Neutral');
+
     currentItem.css('background-color','#D6D7D9');
     var nextItem = currentItem.next();
     currentItem.removeClass('currentSlider');
@@ -268,8 +270,6 @@ $(".circle_container .sliders").each(function(index){
 
 var qnumber = 1;
 $('#qnum').text(qnumber);
-
-
 });
 
 </script>
