@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-top:35px;background-color:#f2f2f2; float: none; display:table-cell">
-      <div class="question" style="margin-bottom:10px;margin-left:30%; text-align:left;font-family: 'Roboto', sans-serif; font-size: 12px;color: #333;font-weight:500">
+      <div class="question" style="margin-bottom:10px;margin-left:30%; text-align:left;font-family: 'Roboto', sans-serif; font-size: 14px;color: #333;font-weight:500">
         1. Drag the active slider to record your choice<br>
         2. Click 'Next Question' to activate the next slider<br>
         3. Click 'Next Ad' to go to the next image
@@ -149,9 +149,9 @@ $("#nextbutton").on('click','#nAd',function(){
       nextAngle += 6;
       reduceAngle -= 6;
     // console.log(nextAngle);
-    $('.circle_container').rotate({animateTo: nextAngle});
-    $('.sliders').rotate({animateTo:reduceAngle});
-    $('#choice').rotate({animateTo:reduceAngle});
+    // $('.circle_container').rotate({animateTo: nextAngle});
+    // $('.sliders').rotate({animateTo:reduceAngle});
+    // $('#choice').rotate({animateTo:reduceAngle});
     qnumber = qnumber+1;
     $('#qnum').text(qnumber);
 
