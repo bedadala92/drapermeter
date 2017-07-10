@@ -70,15 +70,48 @@ $('#qnum').text(qnumber);
 var nextAngle=0;
 var reduceAngle =0;
 
-
-
 var items = $('.sliders');
 var currentItem = items.filter('.currentSlider');
 currentItem.css('background-color','#464646');
+
 items.each(function(){
   var item = $(this);
-    item[0].setAttribute('disabled',true);
-    currentItem.removeAttr("disabled");
+    // item[0].setAttribute('disabled',true);
+    // currentItem.removeAttr("disabled");
+  item.on("click", function(){
+    currentItem = $(this);
+    console.log(this.id);
+    if(this.id=="s1"){
+      $('.current').removeClass('current').hide();
+      $('#q1').show().addClass('current');
+    } else if (this.id=="s2") {
+      $('.current').removeClass('current').hide();
+      $('#q2').show().addClass('current');
+    } else if (this.id=="s3") {
+      $('.current').removeClass('current').hide();
+      $('#q3').show().addClass('current');
+    } else if (this.id=="s4") {
+      $('.current').removeClass('current').hide();
+      $('#q4').show().addClass('current');
+    } else if (this.id=="s5") {
+      $('.current').removeClass('current').hide();
+      $('#q5').show().addClass('current');
+    } else if (this.id=="s6") {
+      $('.current').removeClass('current').hide();
+      $('#q6').show().addClass('current');
+    } else if (this.id=="s7") {
+      $('.current').removeClass('current').hide();
+      $('#q7').show().addClass('current');
+    } else if (this.id=="s8") {
+      $('.current').removeClass('current').hide();
+      $('#q8').show().addClass('current');
+    } else if (this.id=="s9") {
+      $('.current').removeClass('current').hide();
+      $('#q9').show().addClass('current');
+    };
+    currentItem.css('background-color','#464646');
+    items.not(this).css('background-color','#D6D7D9');
+  });
 });
 
 //When Next Ad is Called
@@ -93,9 +126,9 @@ $("#nextbutton").on('click','#nAd',function(){
   items.each(function(){
     var item = $(this);
       item[0].noUiSlider.set(3);
-      item[0].setAttribute('disabled',true);
-      currentItem.removeAttr("disabled");
-  //questions
+  //     item[0].setAttribute('disabled',true);
+  //     currentItem.removeAttr("disabled");
+  // //questions
   $('.current').removeClass('current').hide();
   $('.first').show().addClass('current');
   });
@@ -164,39 +197,39 @@ $("#nextbutton").on('click','#nAd',function(){
     });
 
 //when previous question is called
-  $('#back').on("click",function() {
-    currentItem.css('background-color','#D6D7D9');
-    var nextItem = currentItem.prev();
-
-    currentItem.removeClass('currentSlider');
-    if(nextItem.length){
-      currentItem = nextItem.addClass('currentSlider')
-      currentItem.css('background-color','#464646');
-      items.each(function(){
-        var item = $(this);
-          item[0].setAttribute('disabled',true);
-          currentItem.removeAttr("disabled");
-      });
-    } else {
-      currentItem = items.first().addClass('currentSlider');
-    }
-    nextAngle -= 6;
-    reduceAngle += 6;
-    $('.circle_container').rotate({animateTo:nextAngle});
-    $('.sliders').rotate({animateTo:reduceAngle});
-    $('#choice').rotate({animateTo:reduceAngle});
-
-    qnumber = qnumber-1;
-    $('#qnum').text(qnumber);
-
-    $('.current').removeClass('current').hide()
-        .prev().show().addClass('current');
-    if ($('.current').hasClass('first')) {
-        $('#back').attr('disabled', true);
-    }
-    $('#next').attr('disabled', null);
-
-});
+//   $('#back').on("click",function() {
+//     currentItem.css('background-color','#D6D7D9');
+//     var nextItem = currentItem.prev();
+//
+//     currentItem.removeClass('currentSlider');
+//     if(nextItem.length){
+//       currentItem = nextItem.addClass('currentSlider')
+//       currentItem.css('background-color','#464646');
+//       items.each(function(){
+//         var item = $(this);
+//           item[0].setAttribute('disabled',true);
+//           currentItem.removeAttr("disabled");
+//       });
+//     } else {
+//       currentItem = items.first().addClass('currentSlider');
+//     }
+//     nextAngle -= 6;
+//     reduceAngle += 6;
+//     $('.circle_container').rotate({animateTo:nextAngle});
+//     $('.sliders').rotate({animateTo:reduceAngle});
+//     $('#choice').rotate({animateTo:reduceAngle});
+//
+//     qnumber = qnumber-1;
+//     $('#qnum').text(qnumber);
+//
+//     $('.current').removeClass('current').hide()
+//         .prev().show().addClass('current');
+//     if ($('.current').hasClass('first')) {
+//         $('#back').attr('disabled', true);
+//     }
+//     $('#next').attr('disabled', null);
+//
+// });
 
 $(document).ready(function(){
   // debugger;

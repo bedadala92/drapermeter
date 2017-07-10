@@ -211,9 +211,6 @@ $scope.getCurrentState = function () {
       $state.go('thanks');
 };
 
-
-
-
   $http.get('/polls')
     .success(function(data){
       $scope.polls = data;
